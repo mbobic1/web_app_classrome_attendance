@@ -19,20 +19,52 @@ ol{
     margin-top: 130px; /* Add a top margin to avoid content overlay */
 }
 
-.RS1{
-    display: grid;
-    grid-template-columns: 200px 200px 200px;
-    border: solid black;
+@media (min-width: 1080px) {
+    .RS1, .RS2, .BSc1, .MSc1, .BSc2, .MSc2, .BSc3{
+        background-color: blanchedalmond;
+        display: grid;
+        border: solid black;
+        grid-gap: 10px;    
+        grid-template-columns: repeat(5, 200px);
+        
+       
+    }    
+}
+@media (min-width: 650px) {
+    .RS1{
+        display: grid;
+        border: solid black;
+        grid-gap: 10px;    
+        grid-template-columns: repeat(3, 200px);
+        
+       
+    }    
+}
+@media (min-width: 1000px) {
+    .RS1{
+        display: grid;
+        border: solid black;
+        grid-gap: 10px;    
+        grid-template-columns: repeat(5, 200px);
+        
+       
+    }    
+}
+
+
+.RS1 div{
+    border: 1px solid black;
+    padding: 10px;
 }
 
 i{
     border: 2px solid black;
 }
 
-.redovni{
+#redovni{
     background-color: white;
 }
-
-.izborni{
+#izborni{
     background-color: powderblue;
 }
+
