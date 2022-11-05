@@ -1,6 +1,11 @@
+body{
+    background-color: #abb8c3;
+}
 ul{
+    background-color: khaki;
     list-style: none;
     width: 100%;
+    height: 100px;
     padding: 10px 0;
     position: fixed;
     top: 0;
@@ -16,49 +21,43 @@ ol{
 
 
 #ri{
-    margin-top: 130px; /* Add a top margin to avoid content overlay */
+    margin-top: 170px; /* Add a top margin to avoid content overlay */
 }
 
-@media (min-width: 1080px) {
-    .RS1, .RS2, .BSc1, .MSc1, .BSc2, .MSc2, .BSc3{
-        background-color: blanchedalmond;
-        display: grid;
-        border: solid black;
-        grid-gap: 10px;    
-        grid-template-columns: repeat(5, 200px);
-        
-       
-    }    
+.RS1, .RS2, .BSc1, .MSc1, .BSc2, .MSc2, .BSc3{
+    padding-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    grid-gap: 150px;
 }
-@media (min-width: 650px) {
-    .RS1{
-        display: grid;
-        border: solid black;
-        grid-gap: 10px;    
-        grid-template-columns: repeat(3, 200px);
-        
-       
-    }    
-}
-@media (min-width: 1000px) {
-    .RS1{
-        display: grid;
-        border: solid black;
-        grid-gap: 10px;    
-        grid-template-columns: repeat(5, 200px);
-        
-       
-    }    
-}
+ 
 
 
-.RS1 div{
+ /*.RS1, .RS2, .BSc1, .MSc1, .BSc2, .MSc2, .BSc3{
+        display: grid;
+        border: 1px solid black;
+        grid-gap: 50px;   
+        padding-right: 30px; 
+        grid-template-columns: repeat(5, 300px);
+        padding: 20px;       
+        
+    }  
+    */
+
+.RS1 div, .RS2 div, .BSc1 div, .BSc2 div, .BSc3 div, .MSc1 div, .MSc2 div{
     border: 1px solid black;
-    padding: 10px;
+    padding: 10px 50px;
+    height: 250px;
+    width: 200px;
+} 
+
+.RS1 div h3{
+    padding: 65px 10px 25px 10px;
 }
+
 
 i{
-    border: 2px solid black;
+    border: 1.5px solid black;
 }
 
 #redovni{
