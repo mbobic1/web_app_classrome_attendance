@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../css/prisustvo.css" type="text/css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <h1>Naziv predmeta: Osnove elektrotehnike 1</h1>
+        <h2>Ciklus studija: RS</h2>
+        <h2>Godina studija: I godina</h2>
+        <h2>Odsjek: Računarstvo i informatika</h2>
+    </div>
+
+    <div>
+        <table class="table">
+            <thead>
+                <th>Ime i Prezime</th>
+                <th>Index</th>
+                <th>I</th>
+                <th>II</th>
+                <th>III</th>
+                <th>IV</th>
+                <th>V</th>
+                <th>VI</th>
+                <td colspan="5">VII</td>
+                <th>VIII-XV</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2" data-label="Ime i Prezime">Neko Nekic</td>
+                    <td rowspan="2" data-label="Index">12345</td>
+                    <td rowspan="2" data-label="I">100%</td>
+                    <td rowspan="2" data-label="II">100%</td>
+                    <td rowspan="2" data-label="III">100%</td>
+                    <td rowspan="2" data-label="IV">100%</td>
+                    <td rowspan="2" data-label="V">100%</td>
+                    <td rowspan="2" data-label="VI">100%</td>
+                    <td data-label="VII">p1</td>
+                        <td data-label="VII">p2</td>
+                        <td data-label="VII">p3</td>
+                        <td data-label="VII">v1</td>
+                        <td data-label="VII">v2</td>
+                        <td rowspan="2" data-label="VIII-XV"></td>
+                </tr>
+                <tr>
+                        <td data-label="VII" id="zelena"></td>
+                                <td data-label="VII" id="zelena"></td>
+                                <td data-label="VII" id="crvena"></td>
+                                <td data-label="VII" id="bijela"></td>
+                                <td data-label="VII" id="crvena"></td>
+                                
+                </tr>
+                        <!--<table class="unutra">
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td id="zelena">1</td>
+                                <td id="zelena">1</td>
+                                <td id="crvena">2</td>
+                                <td id="bijela">2</td>
+                                <td id="crvena">2</td>
+                            </tr>
+                        </table>   -->                      
+            </tbody>
+        </table>
+    </div>
     
 </body>
 </html>
