@@ -59,12 +59,12 @@ body{
 }
 
 
-#crvena{
+.crvena{
     background-color: red;
 }
-#bijela{
+.bijela{
     background-color: white;
 }
-#zelena{
+.zelena{
     background-color: green;
 }

@@ -1,86 +1,44 @@
 body{
     background-color: #abb8c3;
+    margin: 0;
 }
 
-ul{
+.glavniMenu{
     background-color: khaki;
     list-style: none;
     width: 100%;
     height: 100px;
-    padding: 10px 0;
+    margin: auto;
+    padding: 20px 0px 30px 20px;
     position: fixed;
     top: 0;
 }
-ul li{
+
+.glavniMenu a{
+    color: black;
+}
+.prviRed{
+    list-style: none;
     float: left;
     width: 25%;
 }
-ol{
+.drugiRed li{
     list-style: none;
-    padding-right: 220px;
+    padding-right: 3px;
 }
-
 
 #ri{
     margin-top: 170px; /* Add a top margin to avoid content overlay */
 }
 
-/*
-@media (min-width: 300px){
-    .RS1, .RS2, .BSc1, .MSc1, .BSc2, .MSc2, .BSc3{
-        padding: 30px;
-        display: grid;
-        grid-template-columns: repeat(1, 200px);
-        grid-gap: 150px;
-    } 
-    #menu{
-        overflow: auto;
-        white-space: nowrap;
-    }
-    #menu ul{
-        display: inline-block;
-        text-align: center;
-        padding: 14px;
-        text-decoration: none;
-    }
-    #menu ul li{
-        display: inline-block;
-        vertical-align: top;
-    }
-}*/
-
-@media (min-width: 750px){
-    .RS1, .RS2, .BSc1, .MSc1, .BSc2, .MSc2, .BSc3{
-        padding: 30px;
-        display: grid;
-        grid-template-columns: repeat(3, 200px);
-        grid-gap: 150px;
-
-    } 
+.msc1, .msc2, .rs1, .rs2, .bsc1, .bsc2, .bsc3{
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 200px));
+    grid-gap: 150px;
 }
 
-@media (min-width: 900px){
-    .RS1, .RS2, .BSc1, .MSc1, .BSc2, .MSc2, .BSc3{
-        padding: 30px;
-        display: grid;
-        grid-template-columns: repeat(4, 200px);
-        grid-gap: 150px;
-
-    } 
-}
-
-
-@media (min-width: 1080px) {
-    .RS1, .RS2, .BSc1, .MSc1, .BSc2, .MSc2, .BSc3{
-        padding: 30px;
-        display: grid;
-        grid-template-columns: repeat(5, 200px);
-        grid-gap: 150px;
-    }    
-}
-
-
-.RS1 div, .RS2 div, .BSc1 div, .BSc2 div, .BSc3 div, .MSc1 div, .MSc2 div{
+.msc1 div, .msc2 div, .rs1 div, .rs2 div, .bsc1 div, .bsc2 div, .bsc3 div{
     border: 1px solid black;
     padding: 10px 50px;
     height: 250px;
@@ -91,19 +49,18 @@ h1{
     padding: 20px 0px 20px 20px;
 }
 
-.RS1 div h3, .RS2 div h3, .BSc1 div h3, .BSc2 div h3, .BSc3 div h3, .MSc1 div h3, .MSc2 div h3{
+.msc1 div h3, .msc2 div h3, .rs1 div h3, .rs2 div h3, .bsc1 div h3, .bsc2 div h3, .bsc3 div h3{
     padding: 65px 10px 25px 10px;
 }
-
 
 i{
     border: 1.5px solid black;
 }
 
-#redovni{
+.redovni{
     background-color: white;
 }
-#izborni{
+.izborni{
     background-color: powderblue;
 }
 

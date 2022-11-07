@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bs">
 <head>
     <link rel="stylesheet" href="../css/predmet.css" type="text/css">
     <meta charset="UTF-8">
@@ -9,289 +9,321 @@
 </head>
 <body>
     <div id="menu">
-   <ul>
-    <li>
-        <a href="#ri"> Računarstvo i informatika </a>
-        <ol>
-            <li><a href="">RS 1</a></li>
-            <li><a href="">RS 2</a></li>
-            <br>
-            <li><a href="">BSc 1</a></li>
-            <li><a href="">BSc 2</a></li>
-            <li><a href="">BSc 3</a></li>
-            <br>
-            <li><a href="">MSc 1</a></li>
-            <li><a href="">MSc 2</a></li>
-        </ol>        
-    </li>
-    <li>
-        <a href="#ee"> Elektroenergetika </a>
-        <ol>
-            <li><a href="">BSc 1</a></li>
-            <li><a href="">BSc 2</a></li>
-            <li><a href="">BSc 3</a></li>
-            <br>
-            <li><a href="">MSc 1</a></li>
-            <li><a href="">MSc 2</a></li>
-        </ol> 
-    </li>
-    <li>
-       <a href="#aie"> Automatika i elektronika </a>
-       <ol>
-        <li><a href="">BSc 1</a></li>
-            <li><a href="">BSc 2</a></li>
-            <li><a href="">BSc 3</a></li>
-            <br>
-            <li><a href="">MSc 1</a></li>
-            <li><a href="">MSc 2</a></li>
-    </ol> 
-    </li>
-    <li>
-       <a href="#tk"> Telekomunikacije </a>
-       <ol>
-        <li><a href="">BSc 1</a></li>
-            <li><a href="">BSc 2</a></li>
-            <li><a href="">BSc 3</a></li>
-            <br>
-            <li><a href="">MSc 1</a></li>
-            <li><a href="">MSc 2</a></li>
-    </ol> 
-    </li>    
-   </ul>
-</div>
+        <ul class="glavniMenu">
+            <li class="prviRed">
+                <a href="#ri"> Računarstvo i informatika </a>
+                    <div class="drugiRed">
+                        <ul>
+                            <li>
+                                <a href="#RiRS1">RS 1</a> 
+                                <a href="#RiRS2">RS 2</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#RiBSc1">BSc 1</a>
+                                <a href="#RiBSc2">BSc 2</a>
+                                <a href="#RiBSc3">BSc 3</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#RiMSc1">MSc 1</a>
+                                <a href="#RiMSc2">MSc 2</a>
+                            </li>
+                        </ul>
+                    </div>
+            </li>
+            <li class="prviRed">
+                <a href="#ee"> Elektroenergetika </a>
+                <div class="drugiRed">
+                    <ul>
+                        <li>
+                            <a href="#EEBSc1">BSc 1</a>
+                            <a href="#EEBSc2">BSc 2</a>
+                            <a href="#EEBSc3">BSc 3</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="#EEMSc1">MSc 1</a>
+                            <a href="#EEMSc2">MSc 2</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="prviRed">
+                <a href="#aie"> Automatika i elektronika </a>
+                <div class="drugiRed">
+                    <ul>
+                        <li>
+                            <a href="#ABSc1">BSc 1</a>
+                            <a href="#ABSc2">BSc 2</a>
+                            <a href="#ABSc3">BSc 3</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="#AMSc1">MSc 1</a>
+                            <a href="#AMSc2">MSc 2</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="prviRed">
+                <a href="#tk"> Telekomunikacije </a>
+                <div class="drugiRed">
+                    <ul>
+                        <li>
+                            <a href="#TKBSc1">BSc 1</a>
+                            <a href="#TKBSc2">BSc 2</a>
+                            <a href="#TKBSc3">BSc 3</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="#TKMSc1">MSc 1</a>
+                            <a href="#TKMSc2">MSc 2</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+        
    <!--Pocetak divova-->
    <div id="ri"> <h1>Računarstvo i informatika</h1> 
-        <div class="RS1"><h2>RS 1</h2>
-            <div id="redovni"> <i>OE</i> 
+        <div class="rs1" id="RiRS1"><h2>RS 1</h2>
+            <div class="redovni"> <i>OE</i> 
                 <br><h3>Osnove elektrotehnike</h3>
             </div>
-            <div id="redovni"><i>IM1</i>
+            <div class="redovni"><i>IM1</i>
                 <br><h3>Inženjerska matematika 1</h3>
             </div>
-            <div id="redovni"> <i>IF1</i> 
+            <div class="redovni"> <i>IF1</i> 
                 <br><h3>Iženjerska fizika 1</h3>
             </div>
-            <div id="redovni"> <i>LAG</i> 
+            <div class="redovni"> <i>LAG</i> 
                 <br><h3>Linearna algebra i geometrija</h3>
             </div>
-            <div id="redovni"> <i>UUP</i> 
+            <div class="redovni"> <i>UUP</i> 
                 <br><h3>Uvod u programiranje</h3>
             </div>
-            <div id="redovni"> <i>VIS</i> 
+            <div class="redovni"> <i>VIS</i> 
                 <br><h3>Vjerovatnoća i statistikav</h3>
             </div>
-            <div id="redovni"> <i>IM2</i> 
+            <div class="redovni"> <i>IM2</i> 
                 <br><h3>Inženjerska matematika 2</h3>
             </div>
-            <div id="redovni"> <i>OS</i> 
+            <div class="redovni"> <i>OS</i> 
                 <br><h3>Operativni sistemi</h3>
             </div>
-            <div id="redovni"> <i>TP</i> 
+            <div class="redovni"> <i>TP</i> 
                 <br><h3>Tehnike programiranja</h3>
             </div>
-            <div id="redovni"> <i>MLTI</i> 
+            <div class="redovni"> <i>MLTI</i> 
                 <br><h3>Matematička logika i teorija izračunljivosti</h3>
             </div>            
         </div>
 
 
-        <div class="RS2"><h2>RS 2</h2>
-            <div id="redovni"> <i>SPO</i> 
+        <div class="rs2" id="RiRS2"><h2>RS 2</h2>
+            <div class="redovni"> <i>SPO</i> 
                 <br><h3>Sistemi za podršku odlučivanju</h3>
             </div>
-            <div id="redovni"> <i>NBP</i> 
+            <div class="redovni"> <i>NBP</i> 
                 <br><h3>Napredne baze podataka</h3>
             </div>  
-            <div id="redovni"> <i>RAB</i> 
+            <div class="redovni"> <i>RAB</i> 
                 <br><h3>Računarski algoritmi u bioinformatici</h3>
             </div>  
-            <div id="izborni"> <i>OR</i> 
+            <div class="izborni"> <i>OR</i> 
                 <br><h3>Održivi razvoj</h3>
             </div>  
-            <div id="izborni"> <i>RPR</i> 
-                <br><h3>Razvoj programskih rješenja<h3>
+            <div class="izborni"> <i>RPR</i> 
+                <br><h3>Razvoj programskih rješenja</h3>
             </div>  
-            <div id="redovni"> <i>HSK</i> 
+            <div class="redovni"> <i>HSK</i> 
                 <br><h3>Hardver/softver kodizajn </h3>
             </div>  
-            <div id="izborni"> <i>NBP</i> 
-                <br><h3>Napredne baze podataka<h3>
+            <div class="izborni"> <i>NBP</i> 
+                <br><h3>Napredne baze podataka</h3>
             </div>  
-            <div id="redovni"> <i>MPVI</i> 
+            <div class="redovni"> <i>MPVI</i> 
                 <br><h3>Metode i primjena vještačke inteligencije</h3>                
             </div>  
-            <div id="redovni"> <i>TS</i> 
+            <div class="redovni"> <i>TS</i> 
                 <br><h3>Teorija signala</h3>
             </div>                
         </div>
 
-        <div class="BSc1"><h2>BSc 1</h2>
-            <div id="redovni"> <i>OE</i> 
+        <div class="bsc1" id="RiBSc1"><h2>BSc 1</h2>
+            <div class="redovni"> <i>OE</i> 
                 <br><h3>Osnove elektrotehnike</h3>
             </div>
-            <div id="redovni"><i>IM1</i>
+            <div class="redovni"><i>IM1</i>
                 <br><h3>Inženjerska matematika 1</h3>
             </div>
-            <div id="redovni"> <i>IF1</i> 
+            <div class="redovni"> <i>IF1</i> 
                 <br><h3>Inženjerska fizika 1</h3>
             </div>
-            <div id="redovni"> <i>LAG</i> 
+            <div class="redovni"> <i>LAG</i> 
                 <br><h3>Linearna algebra i geometrija</h3>
             </div>
-            <div id="redovni"> <i>UUP</i> 
+            <div class="redovni"> <i>UUP</i> 
                 <br><h3>Uvod u programiranje</h3>
             </div>
-            <div id="redovni"> <i>VIS</i> 
+            <div class="redovni"> <i>VIS</i> 
                 <br><h3>Vjerovatnoća i statistika</h3>
             </div>
-            <div id="redovni"> <i>IM2</i> 
+            <div class="redovni"> <i>IM2</i> 
                 <br><h3>Inženjerska matematika 2</h3>
             </div>
-            <div id="redovni"> <i>OS</i> 
+            <div class="redovni"> <i>OS</i> 
                 <br><h3>Operativni sistemi</h3>
             </div>
-            <div id="redovni"> <i>TP</i> 
+            <div class="redovni"> <i>TP</i> 
                 <br><h3>Tehnike programiranja</h3>
             </div>
-            <div id="redovni"> <i>MLTI</i> 
-                <br></h3>Matematička logika i teorija izračunljivosti</h3>
+            <div class="redovni"> <i>MLTI</i> 
+                <br><h3>Matematička logika i teorija izračunljivosti</h3>
             </div>
         </div>
 
-        <div class="BSc2"><h2>BSc 2</h2>
-            <div id="redovni"> <i>UTM</i>
+        <div class="bsc2" id="RiBSc2"><h2>BSc 2</h2>
+            <div class="redovni"> <i>UTM</i>
                <br> <h3>Upravljanje telekomunikacijskim mrežama</h3>
             </div>
-            <div id="redovni"> <i>TEP</i>
+            <div class="redovni"> <i>TEP</i>
                <br> <h3>Teorija elektromagnetnih polja</h3>
             </div>
-            <div id="redovni"> <i>ETK1</i>
+            <div class="redovni"> <i>ETK1</i>
                <br> <h3>Elektronika TK 1</h3> 
             </div>
-            <div id="redovni"> <i>TIIK</i>
+            <div class="redovni"> <i>TIIK</i>
                <br> <h3>Teorija informacija i izvorno kodiranje</h3>
             </div>
-            <div id="izborni"> <i>OBP</i>
+            <div class="izborni"> <i>OBP</i>
                <br> <h3>Osnove baza podataka</h3> 
             </div>
-            <div id="redovni"> <i>LD</i>
+            <div class="redovni"> <i>LD</i>
                <br> <h3>Logički dizajn (RI)</h3> 
             </div>
-            <div id="redovni"> <i>STP</i>
+            <div class="redovni"> <i>STP</i>
                <br> <h3>Statistička teorija signala</h3>
             </div>
-            <div id="redovni"> <i>APT</i>
+            <div class="redovni"> <i>APT</i>
                 <br> <h3>Antene i prostiranje talasa</h3>
             </div>
-            <div id="redovni"> <i>TH1</i>
+            <div class="redovni"> <i>TH1</i>
                 <br>  <h3>Telekomunikacijske tehnike 1</h3> 
             </div>
-            <div id="izborni"> <i>US</i>
+            <div class="izborni"> <i>US</i>
                 <br> <h3>Ugradbeni sistemi (AiE)</h3>
             </div>
-            <div id="redovni"> <i>OOAD</i>
+            <div class="redovni"> <i>OOAD</i>
                 <br> <h3>Objektno orjentisana analiza dizajn (RI)</h3>
                 
             </div>
         </div>
 
-        <div class="BSc3"><h2>BSc 3</h2>
-            <div id="redovni"> <i>TVI</i>
+        <div class="bsc3" id="RiBSc3"><h2>BSc 3</h2>
+            <div class="redovni"> <i>TVI</i>
                 <br> <h3>Tehnologija visokonaponske izolacije</h3> 
              </div>
-             <div id="redovni"> <i>ES</i>
+             <div class="redovni"> <i>ES</i>
                 <br> <h3>Elektroenergetski sistemi </h3>
              </div>
-             <div id="redovni"> <i>PE1</i>
+             <div class="redovni"> <i>PE1</i>
                 <br> <h3>Praktikum iz elektroenergetike 1</h3> 
              </div>
-             <div id="redovni"> <i>EM</i>
+             <div class="redovni"> <i>EM</i>
                 <br> <h3>Električne mašine </h3>
              </div>
-             <div id="izborni"> <i>EST</i>
+             <div class="izborni"> <i>EST</i>
                 <br> <h3>Električni sistemi u transportu</h3> 
              </div>
-             <div id="izborni"> <i>KT</i>
+             <div class="izborni"> <i>KT</i>
                 <br> <h3>Komponente i tehnologije</h3>
              </div>
-             <div id="redovni"> <i>EP</i>
+             <div class="redovni"> <i>EP</i>
                 <br> <h3>Elektromotorni pogoni</h3> 
              </div>
-             <div id="redovni"> <i>PEE</i>
+             <div class="redovni"> <i>PEE</i>
                  <br> <h3>Proizvodnja električne energije</h3>
              </div>
-             <div id="redovni"> <i>ZR</i>
+             <div class="redovni"> <i>ZR</i>
                  <br>  <h3>Završni rad</h3>
              </div>
-             <div id="izborni"> <i>OES</i>
+             <div class="izborni"> <i>OES</i>
                  <br> <h3>Održavanje električnih sistema</h3>
              </div>
         </div>
 
-        <div class="MSc1"><h2>MSc 1</h2>
-            <div id="redovni"> <i>OE</i> 
+        <div class="msc1" id="RiMSc1"><h2>MSc 1</h2>
+            <div class="redovni"> <i>OE</i> 
                 <br><h3>Osnove elektrotehnike</h3>
             </div>
-            <div id="redovni"><i>IM1</i>
+            <div class="redovni"><i>IM1</i>
                 <br><h3>Inženjerska matematika 1</h3>
             </div>
-            <div id="redovni"> <i>IF1</i> 
+            <div class="redovni"> <i>IF1</i> 
                 <br><h3>Inženjerska fizika 1</h3>
             </div>
-            <div id="redovni"> <i>LAG</i> 
+            <div class="redovni"> <i>LAG</i> 
                 <br><h3>Linearna algebra i geometrija</h3>
             </div>
-            <div id="redovni"> <i>UUP</i> 
+            <div class="redovni"> <i>UUP</i> 
                 <br><h3>Uvod u programiranje</h3>
             </div>
-            <div id="redovni"> <i>VIS</i> 
+            <div class="redovni"> <i>VIS</i> 
                 <br><h3>Vjerovatnoća i statistika</h3>
             </div>
-            <div id="redovni"> <i>IM2</i> 
+            <div class="redovni"> <i>IM2</i> 
                 <br><h3>Inženjerska matematika 2</h3>
             </div>
-            <div id="redovni"> <i>OS</i> 
+            <div class="redovni"> <i>OS</i> 
                 <br><h3>Operativni sistemi</h3>
             </div>
-            <div id="redovni"> <i>TP</i> 
+            <div class="redovni"> <i>TP</i> 
                 <br><h3>Tehnike programiranja</h3>
             </div>
-            <div id="redovni"> <i>MLTI</i> 
+            <div class="redovni"> <i>MLTI</i> 
                 <br><h3>Matematička logika i teorija izračunljivosti</h3>
             </div>
         </div>
-        <div class="MSc2"><h2>MSc 2</h2>
-            <div id="redovni"> <i>UTM</i>
+        <div class="msc2" id="RiMSc2"><h2>MSc 2</h2>
+            <div class="redovni"> <i>UTM</i>
                 <br> <h3>Upravljanje telekomunikacijskim mrežama</h3>
              </div>
-             <div id="redovni"> <i>TEP</i>
+             <div class="redovni"> <i>TEP</i>
                 <br> <h3>Teorija elektromagnetnih polja</h3>
              </div>
-             <div id="redovni"> <i>ETK1</i>
+             <div class="redovni"> <i>ETK1</i>
                 <br> <h3>Elektronika TK 1 </h3>
              </div>
-             <div id="redovni"> <i>TIIK</i>
+             <div class="redovni"> <i>TIIK</i>
                 <br> <h3>Teorija informacija i izvorno kodiranje</h3>
              </div>
-             <div id="izborni"> <i>OBP</i>
+             <div class="izborni"> <i>OBP</i>
                 <br> <h3>Osnove baza podataka </h3>
              </div>
-             <div id="redovni"> <i>LD</i>
+             <div class="redovni"> <i>LD</i>
                 <br> <h3>Logički dizajn (RI)</h3> 
              </div>
-             <div id="redovni"> <i>STP</i>
+             <div class="redovni"> <i>STP</i>
                 <br> <h3>Statistička teorija signala</h3>
              </div>
-             <div id="redovni"> <i>APT</i>
+             <div class="redovni"> <i>APT</i>
                  <br> <h3>Antene i prostiranje talasa</h3>
              </div>
-             <div id="redovni"> <i>TH1</i>
+             <div class="redovni"> <i>TH1</i>
                  <br>  <h3>Telekomunikacijske tehnike 1 </h3>
              </div>
-             <div id="izborni"> <i>US</i>
+             <div class="izborni"> <i>US</i>
                  <br> <h3>Ugradbeni sistemi (AiE)</h3>
              </div>
-             <div id="redovni"> <i>OOAD</i>
+             <div class="redovni"> <i>OOAD</i>
                  <br> <h3>Objektno orjentisana analiza dizajn (RI)</h3>
                  
              </div>
@@ -300,519 +332,519 @@
 
 
    <div id="ee"> <h1>Elektroenergetika</h1> 
-    <div class="BSc1"><h2>BSc 1</h2>
-        <div id="redovni"> <i>OE</i> 
+    <div class="bsc1" id="EEBSc1"><h2>BSc 1</h2>
+        <div class="redovni"> <i>OE</i> 
             <br><h3>Osnove elektrotehnike</h3>
         </div>
-        <div id="redovni"><i>IM1</i>
+        <div class="redovni"><i>IM1</i>
             <br><h3>Inženjerska matematika 1</h3>
         </div>
-        <div id="redovni"> <i>IF1</i> 
+        <div class="redovni"> <i>IF1</i> 
             <br><h3>Inženjerska fizika 1</h3>
         </div>
-        <div id="redovni"> <i>LAG</i> 
+        <div class="redovni"> <i>LAG</i> 
             <br><h3>Linearna algebra i geometrija</h3>
         </div>
-        <div id="redovni"> <i>UUP</i> 
+        <div class="redovni"> <i>UUP</i> 
             <br><h3>Uvod u programiranje</h3>
         </div>
-        <div id="redovni"> <i>VIS</i> 
+        <div class="redovni"> <i>VIS</i> 
             <br><h3>Vjerovatnoća i statistika</h3>
         </div>
-        <div id="redovni"> <i>IM2</i> 
+        <div class="redovni"> <i>IM2</i> 
             <br><h3>Inženjerska matematika 2</h3>
         </div>
-        <div id="redovni"> <i>OS</i> 
+        <div class="redovni"> <i>OS</i> 
             <br><h3>Operativni sistemi</h3>
         </div>
-        <div id="redovni"> <i>TP</i> 
+        <div class="redovni"> <i>TP</i> 
             <br><h3>Tehnike programiranja</h3>
         </div>
-        <div id="redovni"> <i>MLTI</i> 
-            <br></h3>Matematička logika i teorija izračunljivosti</h3>
+        <div class="redovni"> <i>MLTI</i> 
+            <br><h3>Matematička logika i teorija izračunljivosti</h3>
         </div>
     </div>
 
-    <div class="BSc2"><h2>BSc 2</h2>
-        <div id="redovni"> <i>UTM</i>
+    <div class="bsc2" id="EEBSc2"><h2>BSc 2</h2>
+        <div class="redovni"> <i>UTM</i>
            <br> <h3>Upravljanje telekomunikacijskim mrežama</h3>
         </div>
-        <div id="redovni"> <i>TEP</i>
+        <div class="redovni"> <i>TEP</i>
            <br> <h3>Teorija elektromagnetnih polja</h3>
         </div>
-        <div id="redovni"> <i>ETK1</i>
+        <div class="redovni"> <i>ETK1</i>
            <br> <h3>Elektronika TK 1</h3> 
         </div>
-        <div id="redovni"> <i>TIIK</i>
+        <div class="redovni"> <i>TIIK</i>
            <br> <h3>Teorija informacija i izvorno kodiranje</h3>
         </div>
-        <div id="izborni"> <i>OBP</i>
+        <div class="izborni"> <i>OBP</i>
            <br> <h3>Osnove baza podataka</h3> 
         </div>
-        <div id="redovni"> <i>LD</i>
+        <div class="redovni"> <i>LD</i>
            <br> <h3>Logički dizajn (RI)</h3> 
         </div>
-        <div id="redovni"> <i>STP</i>
+        <div class="redovni"> <i>STP</i>
            <br> <h3>Statistička teorija signala</h3>
         </div>
-        <div id="redovni"> <i>APT</i>
+        <div class="redovni"> <i>APT</i>
             <br> <h3>Antene i prostiranje talasa</h3>
         </div>
-        <div id="redovni"> <i>TH1</i>
+        <div class="redovni"> <i>TH1</i>
             <br>  <h3>Telekomunikacijske tehnike 1</h3> 
         </div>
-        <div id="izborni"> <i>US</i>
+        <div class="izborni"> <i>US</i>
             <br> <h3>Ugradbeni sistemi (AiE)</h3>
         </div>
-        <div id="redovni"> <i>OOAD</i>
+        <div class="redovni"> <i>OOAD</i>
             <br> <h3>Objektno orjentisana analiza dizajn (RI)</h3>
             
         </div>
     </div>
 
-    <div class="BSc3"><h2>BSc 3</h2>
-        <div id="redovni"> <i>TVI</i>
+    <div class="bsc3" id="EEBSc3"><h2>BSc 3</h2>
+        <div class="redovni"> <i>TVI</i>
             <br> <h3>Tehnologija visokonaponske izolacije</h3> 
          </div>
-         <div id="redovni"> <i>ES</i>
+         <div class="redovni"> <i>ES</i>
             <br> <h3>Elektroenergetski sistemi </h3>
          </div>
-         <div id="redovni"> <i>PE1</i>
+         <div class="redovni"> <i>PE1</i>
             <br> <h3>Praktikum iz elektroenergetike 1</h3> 
          </div>
-         <div id="redovni"> <i>EM</i>
+         <div class="redovni"> <i>EM</i>
             <br> <h3>Električne mašine </h3>
          </div>
-         <div id="izborni"> <i>EST</i>
+         <div class="izborni"> <i>EST</i>
             <br> <h3>Električni sistemi u transportu</h3> 
          </div>
-         <div id="izborni"> <i>KT</i>
+         <div class="izborni"> <i>KT</i>
             <br> <h3>Komponente i tehnologije</h3>
          </div>
-         <div id="redovni"> <i>EP</i>
+         <div class="redovni"> <i>EP</i>
             <br> <h3>Elektromotorni pogoni</h3> 
          </div>
-         <div id="redovni"> <i>PEE</i>
+         <div class="redovni"> <i>PEE</i>
              <br> <h3>Proizvodnja električne energije</h3>
          </div>
-         <div id="redovni"> <i>ZR</i>
+         <div class="redovni"> <i>ZR</i>
              <br>  <h3>Završni rad</h3>
          </div>
-         <div id="izborni"> <i>OES</i>
+         <div class="izborni"> <i>OES</i>
              <br> <h3>Održavanje električnih sistema</h3>
          </div>
     </div>
 
-    <div class="MSc1"><h2>MSc 1</h2>
-        <div id="redovni"> <i>OE</i> 
+    <div class="msc1" id="EEMSc1"><h2>MSc 1</h2>
+        <div class="redovni"> <i>OE</i> 
             <br><h3>Osnove elektrotehnike</h3>
         </div>
-        <div id="redovni"><i>IM1</i>
+        <div class="redovni"><i>IM1</i>
             <br><h3>Inženjerska matematika 1</h3>
         </div>
-        <div id="redovni"> <i>IF1</i> 
+        <div class="redovni"> <i>IF1</i> 
             <br><h3>Inženjerska fizika 1</h3>
         </div>
-        <div id="redovni"> <i>LAG</i> 
+        <div class="redovni"> <i>LAG</i> 
             <br><h3>Linearna algebra i geometrija</h3>
         </div>
-        <div id="redovni"> <i>UUP</i> 
+        <div class="redovni"> <i>UUP</i> 
             <br><h3>Uvod u programiranje</h3>
         </div>
-        <div id="redovni"> <i>VIS</i> 
+        <div class="redovni"> <i>VIS</i> 
             <br><h3>Vjerovatnoća i statistika</h3>
         </div>
-        <div id="redovni"> <i>IM2</i> 
+        <div class="redovni"> <i>IM2</i> 
             <br><h3>Inženjerska matematika 2</h3>
         </div>
-        <div id="redovni"> <i>OS</i> 
+        <div class="redovni"> <i>OS</i> 
             <br><h3>Operativni sistemi</h3>
         </div>
-        <div id="redovni"> <i>TP</i> 
+        <div class="redovni"> <i>TP</i> 
             <br><h3>Tehnike programiranja</h3>
         </div>
-        <div id="redovni"> <i>MLTI</i> 
+        <div class="redovni"> <i>MLTI</i> 
             <br><h3>Matematička logika i teorija izračunljivosti</h3>
         </div>
     </div>
-    <div class="MSc2"><h2>MSc 2</h2>
-        <div id="redovni"> <i>UTM</i>
+    <div class="msc2" id="EEMSc2"><h2>MSc 2</h2>
+        <div class="redovni"> <i>UTM</i>
             <br> <h3>Upravljanje telekomunikacijskim mrežama</h3>
          </div>
-         <div id="redovni"> <i>TEP</i>
+         <div class="redovni"> <i>TEP</i>
             <br> <h3>Teorija elektromagnetnih polja</h3>
          </div>
-         <div id="redovni"> <i>ETK1</i>
+         <div class="redovni"> <i>ETK1</i>
             <br> <h3>Elektronika TK 1 </h3>
          </div>
-         <div id="redovni"> <i>TIIK</i>
+         <div class="redovni"> <i>TIIK</i>
             <br> <h3>Teorija informacija i izvorno kodiranje</h3>
          </div>
-         <div id="izborni"> <i>OBP</i>
+         <div class="izborni"> <i>OBP</i>
             <br> <h3>Osnove baza podataka </h3>
          </div>
-         <div id="redovni"> <i>LD</i>
+         <div class="redovni"> <i>LD</i>
             <br> <h3>Logički dizajn (RI)</h3> 
          </div>
-         <div id="redovni"> <i>STP</i>
+         <div class="redovni"> <i>STP</i>
             <br> <h3>Statistička teorija signala</h3>
          </div>
-         <div id="redovni"> <i>APT</i>
+         <div class="redovni"> <i>APT</i>
              <br> <h3>Antene i prostiranje talasa</h3>
          </div>
-         <div id="redovni"> <i>TH1</i>
+         <div class="redovni"> <i>TH1</i>
              <br>  <h3>Telekomunikacijske tehnike 1 </h3>
          </div>
-         <div id="izborni"> <i>US</i>
+         <div class="izborni"> <i>US</i>
              <br> <h3>Ugradbeni sistemi (AiE)</h3>
          </div>
-         <div id="redovni"> <i>OOAD</i>
+         <div class="redovni"> <i>OOAD</i>
              <br> <h3>Objektno orjentisana analiza dizajn (RI)</h3>
              
          </div>
     </div>
    </div>
    <div id="aie"> <h1>Automatika i elektronika</h1> 
-    <div class="BSc1"><h2>BSc 1</h2>
-        <div id="redovni"> <i>OE</i> 
+    <div class="bsc1" id="ABSc1"><h2>BSc 1</h2>
+        <div class="redovni"> <i>OE</i> 
             <br><h3>Osnove elektrotehnike</h3>
         </div>
-        <div id="redovni"><i>IM1</i>
+        <div class="redovni"><i>IM1</i>
             <br><h3>Inženjerska matematika 1</h3>
         </div>
-        <div id="redovni"> <i>IF1</i> 
+        <div class="redovni"> <i>IF1</i> 
             <br><h3>Inženjerska fizika 1</h3>
         </div>
-        <div id="redovni"> <i>LAG</i> 
+        <div class="redovni"> <i>LAG</i> 
             <br><h3>Linearna algebra i geometrija</h3>
         </div>
-        <div id="redovni"> <i>UUP</i> 
+        <div class="redovni"> <i>UUP</i> 
             <br><h3>Uvod u programiranje</h3>
         </div>
-        <div id="redovni"> <i>VIS</i> 
+        <div class="redovni"> <i>VIS</i> 
             <br><h3>Vjerovatnoća i statistika</h3>
         </div>
-        <div id="redovni"> <i>IM2</i> 
+        <div class="redovni"> <i>IM2</i> 
             <br><h3>Inženjerska matematika 2</h3>
         </div>
-        <div id="redovni"> <i>OS</i> 
+        <div class="redovni"> <i>OS</i> 
             <br><h3>Operativni sistemi</h3>
         </div>
-        <div id="redovni"> <i>TP</i> 
+        <div class="redovni"> <i>TP</i> 
             <br><h3>Tehnike programiranja</h3>
         </div>
-        <div id="redovni"> <i>MLTI</i> 
-            <br></h3>Matematička logika i teorija izračunljivosti</h3>
+        <div class="redovni"> <i>MLTI</i> 
+            <br><h3>Matematička logika i teorija izračunljivosti</h3>
         </div>
     </div>
 
-    <div class="BSc2"><h2>BSc 2</h2>
-        <div id="redovni"> <i>UTM</i>
+    <div class="bsc2" id="ABSc2"><h2>BSc 2</h2>
+        <div class="redovni"> <i>UTM</i>
            <br> <h3>Upravljanje telekomunikacijskim mrežama</h3>
         </div>
-        <div id="redovni"> <i>TEP</i>
+        <div class="redovni"> <i>TEP</i>
            <br> <h3>Teorija elektromagnetnih polja</h3>
         </div>
-        <div id="redovni"> <i>ETK1</i>
+        <div class="redovni"> <i>ETK1</i>
            <br> <h3>Elektronika TK 1</h3> 
         </div>
-        <div id="redovni"> <i>TIIK</i>
+        <div class="redovni"> <i>TIIK</i>
            <br> <h3>Teorija informacija i izvorno kodiranje</h3>
         </div>
-        <div id="izborni"> <i>OBP</i>
+        <div class="izborni"> <i>OBP</i>
            <br> <h3>Osnove baza podataka</h3> 
         </div>
-        <div id="redovni"> <i>LD</i>
+        <div class="redovni"> <i>LD</i>
            <br> <h3>Logički dizajn (RI)</h3> 
         </div>
-        <div id="redovni"> <i>STP</i>
+        <div class="redovni"> <i>STP</i>
            <br> <h3>Statistička teorija signala</h3>
         </div>
-        <div id="redovni"> <i>APT</i>
+        <div class="redovni"> <i>APT</i>
             <br> <h3>Antene i prostiranje talasa</h3>
         </div>
-        <div id="redovni"> <i>TH1</i>
+        <div class="redovni"> <i>TH1</i>
             <br>  <h3>Telekomunikacijske tehnike 1</h3> 
         </div>
-        <div id="izborni"> <i>US</i>
+        <div class="izborni"> <i>US</i>
             <br> <h3>Ugradbeni sistemi (AiE)</h3>
         </div>
-        <div id="redovni"> <i>OOAD</i>
+        <div class="redovni"> <i>OOAD</i>
             <br> <h3>Objektno orjentisana analiza dizajn (RI)</h3>
             
         </div>
     </div>
 
-    <div class="BSc3"><h2>BSc 3</h2>
-        <div id="redovni"> <i>TVI</i>
+    <div class="bsc3" id="ABSc3"><h2>BSc 3</h2>
+        <div class="redovni"> <i>TVI</i>
             <br> <h3>Tehnologija visokonaponske izolacije</h3> 
          </div>
-         <div id="redovni"> <i>ES</i>
+         <div class="redovni"> <i>ES</i>
             <br> <h3>Elektroenergetski sistemi </h3>
          </div>
-         <div id="redovni"> <i>PE1</i>
+         <div class="redovni"> <i>PE1</i>
             <br> <h3>Praktikum iz elektroenergetike 1</h3> 
          </div>
-         <div id="redovni"> <i>EM</i>
+         <div class="redovni"> <i>EM</i>
             <br> <h3>Električne mašine </h3>
          </div>
-         <div id="izborni"> <i>EST</i>
+         <div class="izborni"> <i>EST</i>
             <br> <h3>Električni sistemi u transportu</h3> 
          </div>
-         <div id="izborni"> <i>KT</i>
+         <div class="izborni"> <i>KT</i>
             <br> <h3>Komponente i tehnologije</h3>
          </div>
-         <div id="redovni"> <i>EP</i>
+         <div class="redovni"> <i>EP</i>
             <br> <h3>Elektromotorni pogoni</h3> 
          </div>
-         <div id="redovni"> <i>PEE</i>
+         <div class="redovni"> <i>PEE</i>
              <br> <h3>Proizvodnja električne energije</h3>
          </div>
-         <div id="redovni"> <i>ZR</i>
+         <div class="redovni"> <i>ZR</i>
              <br>  <h3>Završni rad</h3>
          </div>
-         <div id="izborni"> <i>OES</i>
+         <div class="izborni"> <i>OES</i>
              <br> <h3>Održavanje električnih sistema</h3>
          </div>
     </div>
 
-    <div class="MSc1"><h2>MSc 1</h2>
-        <div id="redovni"> <i>OE</i> 
+    <div class="msc1" id="AMSc1"><h2>MSc 1</h2>
+        <div class="redovni"> <i>OE</i> 
             <br><h3>Osnove elektrotehnike</h3>
         </div>
-        <div id="redovni"><i>IM1</i>
+        <div class="redovni"><i>IM1</i>
             <br><h3>Inženjerska matematika 1</h3>
         </div>
-        <div id="redovni"> <i>IF1</i> 
+        <div class="redovni"> <i>IF1</i> 
             <br><h3>Inženjerska fizika 1</h3>
         </div>
-        <div id="redovni"> <i>LAG</i> 
+        <div class="redovni"> <i>LAG</i> 
             <br><h3>Linearna algebra i geometrija</h3>
         </div>
-        <div id="redovni"> <i>UUP</i> 
+        <div class="redovni"> <i>UUP</i> 
             <br><h3>Uvod u programiranje</h3>
         </div>
-        <div id="redovni"> <i>VIS</i> 
+        <div class="redovni"> <i>VIS</i> 
             <br><h3>Vjerovatnoća i statistika</h3>
         </div>
-        <div id="redovni"> <i>IM2</i> 
+        <div class="redovni"> <i>IM2</i> 
             <br><h3>Inženjerska matematika 2</h3>
         </div>
-        <div id="redovni"> <i>OS</i> 
+        <div class="redovni"> <i>OS</i> 
             <br><h3>Operativni sistemi</h3>
         </div>
-        <div id="redovni"> <i>TP</i> 
+        <div class="redovni"> <i>TP</i> 
             <br><h3>Tehnike programiranja</h3>
         </div>
-        <div id="redovni"> <i>MLTI</i> 
+        <div class="redovni"> <i>MLTI</i> 
             <br><h3>Matematička logika i teorija izračunljivosti</h3>
         </div>
     </div>
-    <div class="MSc2"><h2>MSc 2</h2>
-        <div id="redovni"> <i>UTM</i>
+    <div class="msc2" id="AMSc2"><h2>MSc 2</h2>
+        <div class="redovni"> <i>UTM</i>
             <br> <h3>Upravljanje telekomunikacijskim mrežama</h3>
          </div>
-         <div id="redovni"> <i>TEP</i>
+         <div class="redovni"> <i>TEP</i>
             <br> <h3>Teorija elektromagnetnih polja</h3>
          </div>
-         <div id="redovni"> <i>ETK1</i>
+         <div class="redovni"> <i>ETK1</i>
             <br> <h3>Elektronika TK 1 </h3>
          </div>
-         <div id="redovni"> <i>TIIK</i>
+         <div class="redovni"> <i>TIIK</i>
             <br> <h3>Teorija informacija i izvorno kodiranje</h3>
          </div>
-         <div id="izborni"> <i>OBP</i>
+         <div class="izborni"> <i>OBP</i>
             <br> <h3>Osnove baza podataka </h3>
          </div>
-         <div id="redovni"> <i>LD</i>
+         <div class="redovni"> <i>LD</i>
             <br> <h3>Logički dizajn (RI)</h3> 
          </div>
-         <div id="redovni"> <i>STP</i>
+         <div class="redovni"> <i>STP</i>
             <br> <h3>Statistička teorija signala</h3>
          </div>
-         <div id="redovni"> <i>APT</i>
+         <div class="redovni"> <i>APT</i>
              <br> <h3>Antene i prostiranje talasa</h3>
          </div>
-         <div id="redovni"> <i>TH1</i>
+         <div class="redovni"> <i>TH1</i>
              <br>  <h3>Telekomunikacijske tehnike 1 </h3>
          </div>
-         <div id="izborni"> <i>US</i>
+         <div class="izborni"> <i>US</i>
              <br> <h3>Ugradbeni sistemi (AiE)</h3>
          </div>
-         <div id="redovni"> <i>OOAD</i>
+         <div class="redovni"> <i>OOAD</i>
              <br> <h3>Objektno orjentisana analiza dizajn (RI)</h3>
              
          </div>
     </div>
    </div>
    <div id="tk"> <h1>Telekomunikacije</h1> 
-    <div class="BSc1"><h2>BSc 1</h2>
-        <div id="redovni"> <i>OE</i> 
+    <div class="bsc1" id="TKBSc1"><h2>BSc 1</h2>
+        <div class="redovni"> <i>OE</i> 
             <br><h3>Osnove elektrotehnike</h3>
         </div>
-        <div id="redovni"><i>IM1</i>
+        <div class="redovni"><i>IM1</i>
             <br><h3>Inženjerska matematika 1</h3>
         </div>
-        <div id="redovni"> <i>IF1</i> 
+        <div class="redovni"> <i>IF1</i> 
             <br><h3>Inženjerska fizika 1</h3>
         </div>
-        <div id="redovni"> <i>LAG</i> 
+        <div class="redovni"> <i>LAG</i> 
             <br><h3>Linearna algebra i geometrija</h3>
         </div>
-        <div id="redovni"> <i>UUP</i> 
+        <div class="redovni"> <i>UUP</i> 
             <br><h3>Uvod u programiranje</h3>
         </div>
-        <div id="redovni"> <i>VIS</i> 
+        <div class="redovni"> <i>VIS</i> 
             <br><h3>Vjerovatnoća i statistika</h3>
         </div>
-        <div id="redovni"> <i>IM2</i> 
+        <div class="redovni"> <i>IM2</i> 
             <br><h3>Inženjerska matematika 2</h3>
         </div>
-        <div id="redovni"> <i>OS</i> 
+        <div class="redovni"> <i>OS</i> 
             <br><h3>Operativni sistemi</h3>
         </div>
-        <div id="redovni"> <i>TP</i> 
+        <div class="redovni"> <i>TP</i> 
             <br><h3>Tehnike programiranja</h3>
         </div>
-        <div id="redovni"> <i>MLTI</i> 
-            <br></h3>Matematička logika i teorija izračunljivosti</h3>
+        <div class="redovni"> <i>MLTI</i> 
+            <br><h3>Matematička logika i teorija izračunljivosti</h3>
         </div>
     </div>
 
-    <div class="BSc2"><h2>BSc 2</h2>
-        <div id="redovni"> <i>UTM</i>
+    <div class="bsc2" id="TKBSc2"><h2>BSc 2</h2>
+        <div class="redovni"> <i>UTM</i>
            <br> <h3>Upravljanje telekomunikacijskim mrežama</h3>
         </div>
-        <div id="redovni"> <i>TEP</i>
+        <div class="redovni"> <i>TEP</i>
            <br> <h3>Teorija elektromagnetnih polja</h3>
         </div>
-        <div id="redovni"> <i>ETK1</i>
+        <div class="redovni"> <i>ETK1</i>
            <br> <h3>Elektronika TK 1</h3> 
         </div>
-        <div id="redovni"> <i>TIIK</i>
+        <div class="redovni"> <i>TIIK</i>
            <br> <h3>Teorija informacija i izvorno kodiranje</h3>
         </div>
-        <div id="izborni"> <i>OBP</i>
+        <div class="izborni"> <i>OBP</i>
            <br> <h3>Osnove baza podataka</h3> 
         </div>
-        <div id="redovni"> <i>LD</i>
+        <div class="redovni"> <i>LD</i>
            <br> <h3>Logički dizajn (RI)</h3> 
         </div>
-        <div id="redovni"> <i>STP</i>
+        <div class="redovni"> <i>STP</i>
            <br> <h3>Statistička teorija signala</h3>
         </div>
-        <div id="redovni"> <i>APT</i>
+        <div class="redovni"> <i>APT</i>
             <br> <h3>Antene i prostiranje talasa</h3>
         </div>
-        <div id="redovni"> <i>TH1</i>
+        <div class="redovni"> <i>TH1</i>
             <br>  <h3>Telekomunikacijske tehnike 1</h3> 
         </div>
-        <div id="izborni"> <i>US</i>
+        <div class="izborni"> <i>US</i>
             <br> <h3>Ugradbeni sistemi (AiE)</h3>
         </div>
-        <div id="redovni"> <i>OOAD</i>
+        <div class="redovni"> <i>OOAD</i>
             <br> <h3>Objektno orjentisana analiza dizajn (RI)</h3>
             
         </div>
     </div>
 
-    <div class="BSc3"><h2>BSc 3</h2>
-        <div id="redovni"> <i>TVI</i>
+    <div class="bsc3" id="TKBSc3"><h2>BSc 3</h2>
+        <div class="redovni"> <i>TVI</i>
             <br> <h3>Tehnologija visokonaponske izolacije</h3> 
          </div>
-         <div id="redovni"> <i>ES</i>
+         <div class="redovni"> <i>ES</i>
             <br> <h3>Elektroenergetski sistemi </h3>
          </div>
-         <div id="redovni"> <i>PE1</i>
+         <div class="redovni"> <i>PE1</i>
             <br> <h3>Praktikum iz elektroenergetike 1</h3> 
          </div>
-         <div id="redovni"> <i>EM</i>
+         <div class="redovni"> <i>EM</i>
             <br> <h3>Električne mašine </h3>
          </div>
-         <div id="izborni"> <i>EST</i>
+         <div class="izborni"> <i>EST</i>
             <br> <h3>Električni sistemi u transportu</h3> 
          </div>
-         <div id="izborni"> <i>KT</i>
+         <div class="izborni"> <i>KT</i>
             <br> <h3>Komponente i tehnologije</h3>
          </div>
-         <div id="redovni"> <i>EP</i>
+         <div class="redovni"> <i>EP</i>
             <br> <h3>Elektromotorni pogoni</h3> 
          </div>
-         <div id="redovni"> <i>PEE</i>
+         <div class="redovni"> <i>PEE</i>
              <br> <h3>Proizvodnja električne energije</h3>
          </div>
-         <div id="redovni"> <i>ZR</i>
+         <div class="redovni"> <i>ZR</i>
              <br>  <h3>Završni rad</h3>
          </div>
-         <div id="izborni"> <i>OES</i>
+         <div class="izborni"> <i>OES</i>
              <br> <h3>Održavanje električnih sistema</h3>
          </div>
     </div>
 
-    <div class="MSc1"><h2>MSc 1</h2>
-        <div id="redovni"> <i>OE</i> 
+    <div class="msc1" id="TKMSc1"><h2>MSc 1</h2>
+        <div class="redovni"> <i>OE</i> 
             <br><h3>Osnove elektrotehnike</h3>
         </div>
-        <div id="redovni"><i>IM1</i>
+        <div class="redovni"><i>IM1</i>
             <br><h3>Inženjerska matematika 1</h3>
         </div>
-        <div id="redovni"> <i>IF1</i> 
+        <div class="redovni"> <i>IF1</i> 
             <br><h3>Inženjerska fizika 1</h3>
         </div>
-        <div id="redovni"> <i>LAG</i> 
+        <div class="redovni"> <i>LAG</i> 
             <br><h3>Linearna algebra i geometrija</h3>
         </div>
-        <div id="redovni"> <i>UUP</i> 
+        <div class="redovni"> <i>UUP</i> 
             <br><h3>Uvod u programiranje</h3>
         </div>
-        <div id="redovni"> <i>VIS</i> 
+        <div class="redovni"> <i>VIS</i> 
             <br><h3>Vjerovatnoća i statistika</h3>
         </div>
-        <div id="redovni"> <i>IM2</i> 
+        <div class="redovni"> <i>IM2</i> 
             <br><h3>Inženjerska matematika 2</h3>
         </div>
-        <div id="redovni"> <i>OS</i> 
+        <div class="redovni"> <i>OS</i> 
             <br><h3>Operativni sistemi</h3>
         </div>
-        <div id="redovni"> <i>TP</i> 
+        <div class="redovni"> <i>TP</i> 
             <br><h3>Tehnike programiranja</h3>
         </div>
-        <div id="redovni"> <i>MLTI</i> 
+        <div class="redovni"> <i>MLTI</i> 
             <br><h3>Matematička logika i teorija izračunljivosti</h3>
         </div>
     </div>
-    <div class="MSc2"><h2>MSc 2</h2>
-        <div id="redovni"> <i>UTM</i>
+    <div class="msc2" id="TKMSc2"><h2>MSc 2</h2>
+        <div class="redovni"> <i>UTM</i>
             <br> <h3>Upravljanje telekomunikacijskim mrežama</h3>
          </div>
-         <div id="redovni"> <i>TEP</i>
+         <div class="redovni"> <i>TEP</i>
             <br> <h3>Teorija elektromagnetnih polja</h3>
          </div>
-         <div id="redovni"> <i>ETK1</i>
+         <div class="redovni"> <i>ETK1</i>
             <br> <h3>Elektronika TK 1 </h3>
          </div>
-         <div id="redovni"> <i>TIIK</i>
+         <div class="redovni"> <i>TIIK</i>
             <br> <h3>Teorija informacija i izvorno kodiranje</h3>
          </div>
-         <div id="izborni"> <i>OBP</i>
+         <div class="izborni"> <i>OBP</i>
             <br> <h3>Osnove baza podataka </h3>
          </div>
-         <div id="redovni"> <i>LD</i>
+         <div class="redovni"> <i>LD</i>
             <br> <h3>Logički dizajn (RI)</h3> 
          </div>
-         <div id="redovni"> <i>STP</i>
+         <div class="redovni"> <i>STP</i>
             <br> <h3>Statistička teorija signala</h3>
          </div>
-         <div id="redovni"> <i>APT</i>
+         <div class="redovni"> <i>APT</i>
              <br> <h3>Antene i prostiranje talasa</h3>
          </div>
-         <div id="redovni"> <i>TH1</i>
+         <div class="redovni"> <i>TH1</i>
              <br>  <h3>Telekomunikacijske tehnike 1 </h3>
          </div>
-         <div id="izborni"> <i>US</i>
+         <div class="izborni"> <i>US</i>
              <br> <h3>Ugradbeni sistemi (AiE)</h3>
          </div>
-         <div id="redovni"> <i>OOAD</i>
+         <div class="redovni"> <i>OOAD</i>
              <br> <h3>Objektno orjentisana analiza dizajn (RI)</h3>
              
          </div>
