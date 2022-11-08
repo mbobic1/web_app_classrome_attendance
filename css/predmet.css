@@ -24,7 +24,7 @@ body{
 }
 .drugiRed li{
     list-style: none;
-    padding-right: 3px;
+    padding-right: 5px;
 }
 
 #ri{
@@ -62,5 +62,19 @@ i{
 }
 .izborni{
     background-color: powderblue;
+}
+
+@media only screen and (max-width: 600px) {
+    .glavniMenu{
+        overflow: scroll;
+        width: inherit;
+        height: inherit;
+        padding: 10px;
+    }    
+    .prviRed{
+        width: 20%;
+        float: left;
+        padding: 10px;
+    }
 }
 
