@@ -3,6 +3,16 @@ body{
     margin: 0;
 }
 
+@media screen and (max-width: 600px) { 
+    .glavniMenu{
+        text-align: center;
+        height: inherit;
+        overflow: scroll;
+       
+    }
+
+}
+
 .glavniMenu{
     background-color: khaki;
     list-style: none;
@@ -17,6 +27,8 @@ body{
 .glavniMenu a{
     color: black;
 }
+
+
 .prviRed{
     list-style: none;
     float: left;
@@ -26,6 +38,15 @@ body{
     list-style: none;
     padding-right: 5px;
 }
+
+
+@media screen and (min-width: 500px) { 
+    html{
+        scroll-padding-top: 200px;
+    }
+}
+
+
 
 #ri{
     margin-top: 170px; /* Add a top margin to avoid content overlay */
@@ -63,7 +84,7 @@ i{
 .izborni{
     background-color: powderblue;
 }
-
+/*
 @media only screen and (max-width: 600px) {
     .glavniMenu{
         overflow: scroll;
@@ -77,4 +98,4 @@ i{
         padding: 10px;
     }
 }
-
+*/
