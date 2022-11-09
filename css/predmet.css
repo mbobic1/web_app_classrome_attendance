@@ -79,13 +79,13 @@ h1{
 
 @media screen and (min-width: 0px) and (max-width:500px) { 
     html{
-        scroll-padding-top: 250px;
+        scroll-padding-top: 300px;
     }
 }
 
 @media screen and (min-width: 100px) and (max-width: 600px) { 
     .glavniMenu{
-      height: 180px;
+      height: 200px;
       align-items: center;
     
     }
