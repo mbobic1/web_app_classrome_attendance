@@ -85,22 +85,24 @@ h1{
 
 @media screen and (min-width: 100px) and (max-width: 600px) { 
     .glavniMenu{
-      height: 200px;
+      height: 250px;
       align-items: center;
     
     }
       .prviRed{
       width: 100%;
-      float: left;
+      
       align-items: center;
+      text-align: center;
     }
     .drugiRed{
         align-items: center;
         padding: 5px;
-        float:right;
     }
     
     #ri{
-        margin-top: 250px;
+        margin-top: 360px;
     }
   }
+
+  
