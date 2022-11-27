@@ -16,9 +16,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
         }
         uzmi123.push(ukupnosedmica1);
     }
-    console.log(uzmi123);
     var ukupnosedmica = Math.max(...uzmi123);
-    console.log(ukupnosedmica);
     //privatni atribut modula trenutni2
     var trenutni2 = ukupnosedmica;
 
@@ -158,8 +156,6 @@ let TabelaPrisustvo = function (divRef, podaci) {
         }
     }
     function napravitabelu(trenutni2){
-    console.log("Usao u funkciju trenutni pri ulazu je: ");
-    console.log(trenutni2);
     var ukupnoVjIPr = podaci.brojPredavanjaSedmicno+podaci.brojVjezbiSedmicno;
     //pocinje tabela 
     trenutni2--;
