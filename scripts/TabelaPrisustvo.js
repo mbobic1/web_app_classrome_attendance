@@ -1,21 +1,30 @@
 let TabelaPrisustvo = function (divRef, podaci) {
     //privatni atributi modula
     //
-    var ukupnosedmica=0;
-    for(var i=0; i<podaci.prisustva.length; i++){
-        if(podaci.prisustva[i].index==podaci.studenti[0].index){
-        ukupnosedmica++;
-        }
+    if(div==null || podaci==null){
+        return {sljedecaSedmica:null,prethodnaSedmica:null}
     }
+    
+    var ukupnosedmica1=0;
+    var uzmi123 = new Array();
+    for(var j=0; j<podaci.studenti.length; j++){
+        ukupnosedmica1=0;
+        for(var i=0; i<podaci.prisustva.length; i++){
+            if(podaci.prisustva[i].index==podaci.studenti[j].index){
+            ukupnosedmica1++;   
+            }
+        }
+        uzmi123.push(ukupnosedmica1);
+    }
+    console.log(uzmi123);
+    var ukupnosedmica = Math.max(...uzmi123);
+    console.log(ukupnosedmica);
+    //privatni atribut modula trenutni2
     var trenutni2 = ukupnosedmica;
 
     let sljedecaSedmica;
     let prethodnaSedmica;
 
-    
-    if(div==null || podaci==null){
-        return {sljedecaSedmica:null,prethodnaSedmica:null}
-    }
 
     const container1 = document.getElementById('divSadrzaj');
     var imaNestpUDivu=0;
@@ -149,16 +158,13 @@ let TabelaPrisustvo = function (divRef, podaci) {
             return "XV";
         }
     }
-    function napravitabelu(trenutni2){
-    console.log("Usao u funkciju trenutni pri ulazu je: ");
-    console.log(trenutni2);
+    function napravitabelu(){
     var ukupnoVjIPr = podaci.brojPredavanjaSedmicno+podaci.brojVjezbiSedmicno;
     //pocinje tabela 
-    trenutni2--;
     var tabela1 = "<h1><b> Predmet: "+ podaci.predmet + "</b></h1>";
     tabela1 += "<table class=\"table\"><thead><tr><th>Ime i Prezima </th><th>Index</th>";
     for(var i=0; i<ukupnosedmica; i++){
-        if(i==trenutni2){
+        if(i==ukupnosedmica-1){
             i+=1;
             tabela1+= "<td colspan=\""+ukupnoVjIPr+"\"><b>"+promjeniBroj(i)+"</b></td>";
             i-=1;
@@ -183,7 +189,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
             for(var j = 1; j<=ukupnosedmica; j++){
                 izasaoPrIVj=0;
                 var izbaci=podaci.prisustva.filter(x => x.index == podaci.studenti[i].index).filter(x=> x.sedmica==j);
-                if(izbaci.length==0 && trenutni2==j-1){
+                if(izbaci.length==0 && ukupnosedmica==j){
                     for(var l=0; l<podaci.brojPredavanjaSedmicno; l++){
                         l+=1;
                         tabela1+="<td> p <br>"+ l + "</td>"; 
@@ -200,7 +206,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
                     tabela1+="<td rowspan=\"2\"></td>";
                 }else{
                 izasaoPrIVj+=(izbaci[0].predavanja + izbaci[0].vjezbe);
-                if(trenutni2==j-1){
+                if(ukupnosedmica==j){
                     for(var l=0; l<podaci.brojPredavanjaSedmicno; l++){
                         l+=1;
                         tabela1+="<td> p <br>"+ l + "</td>"; 
@@ -220,7 +226,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
             }
             tabela1+="<td rowspan=\"2\"></td>";
             tabela1+="<tr>"
-            var izbaci=podaci.prisustva.filter(x => x.index == podaci.studenti[i].index).filter(x=> x.sedmica==trenutni2+1);
+            var izbaci=podaci.prisustva.filter(x => x.index == podaci.studenti[i].index).filter(x=> x.sedmica==ukupnosedmica);
             if(izbaci.length==0){
                 for(var m = 0; m<podaci.brojPredavanjaSedmicno; m++){
                         tabela1+="<td> </td>"
@@ -255,40 +261,14 @@ let TabelaPrisustvo = function (divRef, podaci) {
         }
     tabela1+="</tbody></table>";
     divRef.innerHTML = tabela1;
-     //zavrsava tabela
-     var button1=document.createElement('BUTTON');
-     button1.innerHTML="<i class=\"fa-solid fa-arrow-left\"></i>";
-     button1.onclick=prethodnaSedmica;
-     divRef.appendChild(button1);
-     var button2=document.createElement('BUTTON');
-     button2.innerHTML="<i class=\"fa-solid fa-arrow-right\"></i>";
-     button2.onclick=sljedecaSedmica;
-     divRef.appendChild(button2);
-   
+     //zavrsava tabela   
 }
 
-    link1=document.createElement("link");
-    link1.rel="stylesheet";
-    link1.integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==";
-    link1.crossOrigin="anonymous";
-    link1.href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css";
-    document.head.appendChild(link1);
-
-    napravitabelu(trenutni2);
+    napravitabelu();
     //implementacija metoda
     sljedecaSedmica = function () {
-        if(ukupnosedmica == trenutni2){
-            return;
-        }
-        trenutni2+=1;
-        napravitabelu(trenutni2);
     }
     prethodnaSedmica = function () {
-        if(trenutni2==1){ 
-            return;
-        }
-        trenutni2-=1;
-        napravitabelu(trenutni2);
     }
     return {
         sljedecaSedmica: sljedecaSedmica,
