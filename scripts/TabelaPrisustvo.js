@@ -1,6 +1,9 @@
 let TabelaPrisustvo = function (divRef, podaci) {
     //privatni atributi modula
     //
+    if(div==null || podaci==null){
+        return {sljedecaSedmica:null,prethodnaSedmica:null}
+    }
 
     const container1 = document.getElementById('divSadrzaj');
     var imaNestpUDivu=0;
@@ -134,6 +137,8 @@ let TabelaPrisustvo = function (divRef, podaci) {
             return "XV";
         }
     }
+
+    function napravitabelu(){
     var ukupnosedmica=0;
     for(var i=0; i<podaci.prisustva.length; i++){
         if(podaci.prisustva[i].index==podaci.studenti[0].index){
@@ -185,10 +190,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
                         tabela1+="<td rowspan=\"2\">"+podaci.studenti[j].ime+"</td>";
                         tabela1+="<td rowspan=\"2\">"+podaci.studenti[j].index+"</td>";
                     }
-                    console.log("Ovdje sedmica:");
-                    console.log(ukupnosedmica);
-                    if(podaci.prisustva[j].sedmica==(ukupnosedmica-1)){ 
-                        console.log(ukupnosedmica);  
+                    if(podaci.prisustva[j].sedmica==(ukupnosedmica-1)){  
                         for(var l=0; l<podaci.brojPredavanjaSedmicno; l++){
                             l+=1;
                             tabela1+="<td> p <br>"+ l + "</td>"; 
@@ -201,7 +203,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
                         }
                     }
                     else{
-                        tabela1+="<td rowspan=\"2\">"+ ((izasaoPrIVj/ukupnoVjIPr)*100) +"%</td>";
+                        tabela1+="<td rowspan=\"2\">"+ parseInt((izasaoPrIVj/ukupnoVjIPr)*100) +"%</td>";
                     }
                 }            
             }
@@ -240,9 +242,24 @@ let TabelaPrisustvo = function (divRef, podaci) {
     }
     tabela1+="</tbody></table>";
     divRef.innerHTML = tabela1;
-    //zavrsava tabela
+     //zavrsava tabela
+     var button1=document.createElement('BUTTON');
+     button1.innerHTML="<i class=\"fa-solid fa-arrow-left\"></i>";
+     divRef.appendChild(button1);
+     var button2=document.createElement('BUTTON');
+     button2.innerHTML="<i class=\"fa-solid fa-arrow-right\"></i>";
+     divRef.appendChild(button2);
+   
+}
 
+link1=document.createElement("link");
+         link1.rel="stylesheet";
+         link1.integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==";
+         link1.crossOrigin="anonymous";
+        link1.href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css";
+        document.head.appendChild(link1);
 
+napravitabelu();
 
 
 
@@ -252,7 +269,10 @@ let TabelaPrisustvo = function (divRef, podaci) {
     }
 
     let prethodnaSedmica = function () {
-
+        if(ukupnosedmica==1) 
+        return;
+        ukupnosedmica--;
+        napravitabelu(ukupnosedmica);
     }
 
 
