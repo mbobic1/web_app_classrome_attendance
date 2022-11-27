@@ -1,6 +1,13 @@
 let TabelaPrisustvo = function (divRef, podaci) {
     //privatni atributi modula
     //
+    var ukupnosedmica=0;
+    for(var i=0; i<podaci.prisustva.length; i++){
+        if(podaci.prisustva[i].index==podaci.studenti[0].index){
+        ukupnosedmica++;
+        }
+    }
+    var trenutni2 = ukupnosedmica;
 
     let sljedecaSedmica;
     let prethodnaSedmica;
@@ -142,18 +149,9 @@ let TabelaPrisustvo = function (divRef, podaci) {
             return "XV";
         }
     }
-    var ukupnosedmica=0;
-    for(var i=0; i<podaci.prisustva.length; i++){
-        if(podaci.prisustva[i].index==podaci.studenti[0].index){
-        ukupnosedmica++;
-        }
-    }
-    var trenutni2 = 1;
     function napravitabelu(trenutni2){
     console.log("Usao u funkciju trenutni pri ulazu je: ");
     console.log(trenutni2);
-    var uzmiIndekse = [];
-    var indekspostoji=0;
     var ukupnoVjIPr = podaci.brojPredavanjaSedmicno+podaci.brojVjezbiSedmicno;
     //pocinje tabela 
     trenutni2--;
@@ -177,77 +175,84 @@ let TabelaPrisustvo = function (divRef, podaci) {
     tabela1+="</tr> </thead>";
     //tbodypocinje
     tabela1+="<tbody>"
-    var izasaoPrIVj=0;
-    for(var i = 0; i< podaci.studenti.length; i++){
-        tabela1+="<tr>";
-        indekspostoji=0;
-            for(var j=0; j<podaci.prisustva.length; j++){
+        for(var i=0; i<podaci.studenti.length; i++){
+            var izasaoPrIVj=0;
+            tabela1+="<tr>"
+            tabela1+="<td rowspan=\"2\">"+podaci.studenti[i].ime + "</td>";
+            tabela1+="<td rowspan=\"2\">"+podaci.studenti[i].index + "</td>";
+            for(var j = 1; j<=ukupnosedmica; j++){
                 izasaoPrIVj=0;
-                indekspostoji=0;
-                if(podaci.prisustva[j].index==podaci.studenti[i].index){
-                    for(var k=0; k<uzmiIndekse.length; k++){
-                        if(uzmiIndekse[k]==podaci.studenti[i].index){
-                            indekspostoji=1;
-                            continue;
-                        }
+                var izbaci=podaci.prisustva.filter(x => x.index == podaci.studenti[i].index).filter(x=> x.sedmica==j);
+                if(izbaci.length==0 && trenutni2==j-1){
+                    for(var l=0; l<podaci.brojPredavanjaSedmicno; l++){
+                        l+=1;
+                        tabela1+="<td> p <br>"+ l + "</td>"; 
+                        l-=1;
                     }
-                    //podaci.prisustva.filter(x => x.index == podaci.studenti[i]).filter(x => x.sedmica == j+1)
-                    izasaoPrIVj+=(podaci.prisustva[j].predavanja + podaci.prisustva[j].vjezbe);
-                    if(indekspostoji==0){
-                        uzmiIndekse.push(podaci.studenti[j].index);
-                        tabela1+="<td rowspan=\"2\">"+podaci.studenti[j].ime+"</td>";
-                        tabela1+="<td rowspan=\"2\">"+podaci.studenti[j].index+"</td>";
+                    for(var l =0; l<podaci.brojVjezbiSedmicno; l++){
+                        l+=1;
+                        tabela1+="<td> v <br>"+ l + "</td>";
+                        l-=1;
                     }
-                    if(podaci.prisustva[j].sedmica==(trenutni2+1)){  
-                        for(var l=0; l<podaci.brojPredavanjaSedmicno; l++){
-                            l+=1;
-                            tabela1+="<td> p <br>"+ l + "</td>"; 
-                            l-=1;
-                        }
-                        for(var l =0; l<podaci.brojVjezbiSedmicno; l++){
-                            l+=1;
-                            tabela1+="<td> v <br>"+ l + "</td>";
-                            l-=1;
-                        }
+
+                }
+                else if(izbaci.length==0){
+                    tabela1+="<td rowspan=\"2\"></td>";
+                }else{
+                izasaoPrIVj+=(izbaci[0].predavanja + izbaci[0].vjezbe);
+                if(trenutni2==j-1){
+                    for(var l=0; l<podaci.brojPredavanjaSedmicno; l++){
+                        l+=1;
+                        tabela1+="<td> p <br>"+ l + "</td>"; 
+                        l-=1;
+                    }
+                    for(var l =0; l<podaci.brojVjezbiSedmicno; l++){
+                        l+=1;
+                        tabela1+="<td> v <br>"+ l + "</td>";
+                        l-=1;
+                    }
                     }
                     else{
                         tabela1+="<td rowspan=\"2\">"+ parseInt((izasaoPrIVj/ukupnoVjIPr)*100) +"%</td>";
                     }
-                }            
+                }
+                
             }
-            tabela1+="<td rowspan=\"2\"></td>"; 
-            //red dupli sad pravimo   
-            var brojPred = 0; 
-            var brojVjez = 0;        
-            tabela1+="<tr>";
-            for(var j=0; j<podaci.prisustva.length; j++){              
-                if(podaci.prisustva[j].index==podaci.studenti[i].index){
-                    if(podaci.prisustva[j].sedmica==trenutni2+1){
-                        brojPred=podaci.prisustva[j].predavanja;
-                        for(var m = 0; m<podaci.brojPredavanjaSedmicno; m++){
-                            if(m<=brojPred-1){
-                                tabela1+="<td class=\"zelena\"></td>"
-                            }
-                            else{
-                                tabela1+="<td class=\"crvena\"></td>"
-                            }
+            tabela1+="<td rowspan=\"2\"></td>";
+            tabela1+="<tr>"
+            var izbaci=podaci.prisustva.filter(x => x.index == podaci.studenti[i].index).filter(x=> x.sedmica==trenutni2+1);
+            if(izbaci.length==0){
+                for(var m = 0; m<podaci.brojPredavanjaSedmicno; m++){
+                        tabela1+="<td> </td>"
+                    
+                }
+                for(var m =0; m<podaci.brojVjezbiSedmicno; m++){
+                        tabela1+="<td> </td>"                    
+                }
+            }else{
+                brojPred=izbaci[0].predavanja;
+                    for(var m = 0; m<podaci.brojPredavanjaSedmicno; m++){
+                        if(m<=brojPred-1){
+                            tabela1+="<td class=\"zelena\"></td>"
                         }
-                        brojVjez=podaci.prisustva[j].vjezbe;
-                        for(var m =0; m<podaci.brojVjezbiSedmicno; m++){
-                            if(m<=brojVjez-1){
-                                tabela1+="<td class=\"zelena\"></td>"
-                            }
-                            else{
-                                tabela1+="<td class=\"crvena\"></td>"
-                            }
+                        else{
+                            tabela1+="<td class=\"crvena\"></td>"
                         }
                     }
-                }             
+                    brojVjez=izbaci[0].vjezbe;
+                    for(var m =0; m<podaci.brojVjezbiSedmicno; m++){
+                        if(m<=brojVjez-1){
+                            tabela1+="<td class=\"zelena\"></td>"
+                        }
+                        else{
+                            tabela1+="<td class=\"crvena\"></td>"
+                        }
+                    }
             }
-            tabela1+="</tr>";
-            //zavrsava red novi for pocinje
-        tabela1+="</tr>";
-    }
+            tabela1+="</tr>"
+                
+            tabela1+="</tr>"
+        }
     tabela1+="</tbody></table>";
     divRef.innerHTML = tabela1;
      //zavrsava tabela
