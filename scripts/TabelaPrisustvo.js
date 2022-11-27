@@ -191,7 +191,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
                             continue;
                         }
                     }
-                    podaci.prisustva.filter(x => x.index == podaci.studenti[i]).filter(x => x.sedmica == j+1)
+                    //podaci.prisustva.filter(x => x.index == podaci.studenti[i]).filter(x => x.sedmica == j+1)
                     izasaoPrIVj+=(podaci.prisustva[j].predavanja + podaci.prisustva[j].vjezbe);
                     if(indekspostoji==0){
                         uzmiIndekse.push(podaci.studenti[j].index);
