@@ -18,6 +18,6 @@ let podaci = TabelaPrisustvo(div, {
 
 
 //pozivanje metoda
-//prisustvo.sljedecaSedmica();
-//prisustvo.prethodnaSedmica();
+podaci.sljedecaSedmica();
+podaci.prethodnaSedmica();
 
