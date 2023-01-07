@@ -11,10 +11,36 @@ const PoziviAjax = (()=>{
 
     }
     function impl_postLogin(username,password,fnCallback){
+        var ajax = new XMLHttpRequest();
+        ajax.onreadystatechange = function() {
+            if(ajax.readyState == 4 && ajax.status==200) {
+                var jsoneRez = JSON.parse(ajax.responseText);
+                fnCallback(jsoneRez);
+            }else if (ajax.readyState == 4 && ajax.status == 400) {
+                var jsonRez = JSON.parse(ajax.responseText);
+                fnCallback(jsonRez, null);
+              }
+        }
+        ajax.open("POST", "http://localhost:3000/login", true);
+        ajax.setRequestHeader("Content-Type", "application/json");
+        ajax.send(JSON.stringify({username:username,password:password}));
+        return;
 
     }
     function impl_postLogout(fnCallback){
-
+        var ajax = new XMLHttpRequest();
+        ajax.onreadystatechange = function() {
+            if(ajax.readyState == 4 && ajax.status==200) {
+                var jsoneRez = JSON.parse(ajax.responseText);
+                fnCallback(jsoneRez);
+            }else if (ajax.readyState == 4 && ajax.status == 400) {
+                var jsonRez = JSON.parse(ajax.responseText);
+                fnCallback(jsonRez, null);
+              }
+        }
+        ajax.open("POST", "http://localhost:3000/logout", true);
+        ajax.setRequestHeader("Content-Type", "application/json");
+        ajax.send();
     }
     //prisustvo ima oblik {sedmica:N,predavanja:P,vjezbe:V}
     function impl_postPrisustvo(naziv,index,prisustvo,fnCallback){
