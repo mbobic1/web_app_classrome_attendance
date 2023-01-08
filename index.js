@@ -68,14 +68,39 @@ app.use(session({
     if(req.session.username == null){
         res.send(JSON.stringify("greska:”Nastavnik nije loginovan”"));
     }
-    res.write('<!DOCTYPE html><html><link rel=\"stylesheet\" href=\"predmeti.css\"</link><body>')
+    res.write('<!DOCTYPE html><html><link rel=\"stylesheet\" href=\"predmeti.css\"</link><link rel=\"stylesheet\" href=\"prisustvo.css\"</link><body>')
     res.write('<div id="menu"> <ul>');
-    for(var i=0; i<req.session.predmeti.length; i++){
-        res.write('<li><button>'+req.session.predmeti[i]+'</button></li>');
+    if(req.session.predmeti!=null){
+        for(var i=0; i<req.session.predmeti.length; i++){
+            res.write('<li><button value=\"'+req.session.predmeti[i]+'\" onclick=\"klikpredmeta(this.value)\">'+req.session.predmeti[i]+'</button></li>');
+        }
+    }else{
+        res.write('<h2>Nije prijavljen ni na jedan predmet</h2>');
     }
-    res.write('</ul><button onclick=\"logout()\">Logout</button></div>');
-    res.write('<script src=\"poziviAjax.js\"></script><script src=\"predmeti.js\"></script>')
+    res.write('</ul><button onclick=\"logout()\">Logout</button></div><div id=\"ucrtaj\"></div>');
+    res.write('<script src=\"TabelaPrisustvo.js\"></script><script src=\"poziviAjax.js\"></script><script src=\"predmeti.js\"></script>')
     res.end('</body></html>');
+ });
+
+
+ app.get('/predmet/:NAZIV', function(req, res){
+    var ima =0;
+    fs.readFile(__dirname+"/public/data/prisustva.json", function(err, data){
+        if(err){
+            console.error(err);
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('Doslo je do greske prilikom citanja fajla');
+        }
+        const fileContent = JSON.parse(data); 
+        for(var i=0; i<fileContent.length; i++){
+            if(fileContent[i].predmet==req.params.NAZIV){
+                ima = 1;
+                res.send(JSON.stringify(fileContent[i]));
+                break;
+            }
+        }
+
+    });
  });
 
 app.listen(3000);

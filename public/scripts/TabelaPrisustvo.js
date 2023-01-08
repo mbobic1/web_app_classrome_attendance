@@ -1,9 +1,10 @@
 let TabelaPrisustvo = function (divRef, podaci) {
     //privatni atributi modula
     //
-    if(div==null || podaci==null){
+    if(divRef==null || podaci==null){
         return {sljedecaSedmica:null,prethodnaSedmica:null}
     }
+    var sedmice = Math.max(...podaci.prisustva.map(s => s.sedmica));
     
     var ukupnosedmica1=0;
     var uzmi123 = new Array();
@@ -16,23 +17,13 @@ let TabelaPrisustvo = function (divRef, podaci) {
         }
         uzmi123.push(ukupnosedmica1);
     }
-    var ukupnosedmica = Math.max(...uzmi123);
+    var ukupnosedmica = sedmice;
     //privatni atribut modula trenutni2
     var trenutni2 = ukupnosedmica;
 
     let sljedecaSedmica;
     let prethodnaSedmica;
-
-    const container1 = document.getElementById('divSadrzaj');
-    var imaNestpUDivu=0;
-    if(container1.firstChild){
-        imaNestpUDivu=1;
-    }
-    if(imaNestpUDivu==1){
-        while(container1.lastElementChild){
-            container1.removeChild(container1.lastElementChild);
-        }
-    }
+  
 
 
     //Broj prisustva na predavanju/vježbi je veći od broja predavanja/vježbi sedmično
@@ -97,16 +88,6 @@ let TabelaPrisustvo = function (divRef, podaci) {
                 return;
         }
     }
-    //Postoji sedmica, između dvije sedmice za koje je uneseno prisustvo bar 
-    //jednom studentu, u kojoj nema unesenog prisustva. Npr. uneseno je 
-    //prisustvo za sedmice 1 i 3 ali nijedan student nema prisustvo za sedmicu 2
-    /*for(var i =0; i<podaci.prisustva.length; i++){
-        for(var j=0; j<podaci.studenti.length; j++){
-            if(podaci.prisustva[i].index==podaci.studenti[j].index){
-
-            }
-        }
-    }*/
 
     function promjeniBroj(broj){
         if(broj==1){
@@ -156,7 +137,8 @@ let TabelaPrisustvo = function (divRef, podaci) {
         }
     }
     function napravitabelu(trenutni2){
-    var ukupnoVjIPr = podaci.brojPredavanjaSedmicno+podaci.brojVjezbiSedmicno;
+    var ukupnoVjIPr = parseInt(podaci.brojPredavanjaSedmicno) + parseInt(podaci.brojVjezbiSedmicno);
+    console.log("Ukupno vjezbi ima: "+ukupnoVjIPr);
     //pocinje tabela 
     trenutni2--;
     var tabela1 = "<h1><b> Predmet: "+ podaci.predmet + "</b></h1>";
@@ -203,7 +185,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
                 else if(izbaci.length==0){
                     tabela1+="<td rowspan=\"2\"></td>";
                 }else{
-                izasaoPrIVj+=(izbaci[0].predavanja + izbaci[0].vjezbe);
+                izasaoPrIVj+=(parseInt(izbaci[0].predavanja) + parseInt(izbaci[0].vjezbe));
                 if(trenutni2==j-1){
                     for(var l=0; l<podaci.brojPredavanjaSedmicno; l++){
                         l+=1;

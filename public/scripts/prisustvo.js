@@ -12,7 +12,7 @@ let podaci = TabelaPrisustvo(div, {
     {sedmica: 1,predavanja: 1,vjezbe: 0,index: 12346},
     {sedmica: 4,predavanja: 3,vjezbe: 0,index: 12345},
     {sedmica: 4,predavanja: 3,vjezbe: 0,index: 12346}
-], predmet:"WT", brojPredavanjaSedmicno:4, brojVjezbiSedmicno:2});
+], predmet:"PREDMET1", brojPredavanjaSedmicno:4, brojVjezbiSedmicno:2});
 
 
 
