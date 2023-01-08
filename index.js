@@ -61,8 +61,22 @@ app.use(session({
  });
  app.post('/logout', function(req,res){
     req.session.destroy();
-    req.send('Obrisano je');
+    res.send(JSON.stringify('Obrisano je'));
  })
+
+ app.get('/predmeti', function(req, res){
+    if(req.session.username == null){
+        res.send(JSON.stringify("greska:”Nastavnik nije loginovan”"));
+    }
+    res.write('<!DOCTYPE html><html><link rel=\"stylesheet\" href=\"predmeti.css\"</link><body>')
+    res.write('<div id="menu"> <ul>');
+    for(var i=0; i<req.session.predmeti.length; i++){
+        res.write('<li><button>'+req.session.predmeti[i]+'</button></li>');
+    }
+    res.write('</ul><button onclick=\"logout()\">Logout</button></div>');
+    res.write('<script src=\"poziviAjax.js\"></script><script src=\"predmeti.js\"></script>')
+    res.end('</body></html>');
+ });
 
 app.listen(3000);
 
