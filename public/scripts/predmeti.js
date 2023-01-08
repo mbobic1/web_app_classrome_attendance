@@ -14,9 +14,13 @@ function klikpredmeta(a){
 }
 
 function fnCallback4(a){
-    console.log(a);
     var divRef = document.getElementById("ucrtaj");
     var k = TabelaPrisustvo(divRef,a)
     k.prethodnaSedmica();
     k.sljedecaSedmica();
+}
+
+function togglecolor(element) {
+    if (element.className == "zelena") { element.className = "crvena"; }
+    else if(element.className == "crvena"){ element.className = "zelena"; }
 }

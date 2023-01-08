@@ -88,7 +88,6 @@ let TabelaPrisustvo = function (divRef, podaci) {
                 return;
         }
     }
-
     function promjeniBroj(broj){
         if(broj==1){
             return "I";
@@ -138,11 +137,10 @@ let TabelaPrisustvo = function (divRef, podaci) {
     }
     function napravitabelu(trenutni2){
     var ukupnoVjIPr = parseInt(podaci.brojPredavanjaSedmicno) + parseInt(podaci.brojVjezbiSedmicno);
-    console.log("Ukupno vjezbi ima: "+ukupnoVjIPr);
     //pocinje tabela 
     trenutni2--;
     var tabela1 = "<h1><b> Predmet: "+ podaci.predmet + "</b></h1>";
-    tabela1 += "<table class=\"table\"><thead><tr><th>Ime i Prezima </th><th>Index</th>";
+    tabela1 += "<table id=\"tabela12\" class=\"table\"><thead><tr><th>Ime i Prezima </th><th>Index</th>";
     for(var i=0; i<ukupnosedmica; i++){
         if(i==trenutni2){
             i+=1;
@@ -219,19 +217,19 @@ let TabelaPrisustvo = function (divRef, podaci) {
                 brojPred=izbaci[0].predavanja;
                     for(var m = 0; m<podaci.brojPredavanjaSedmicno; m++){
                         if(m<=brojPred-1){
-                            tabela1+="<td class=\"zelena\"></td>"
+                            tabela1+="<td onclick=\"togglecolor(this)\" class=\"zelena\"></td>"
                         }
                         else{
-                            tabela1+="<td class=\"crvena\"></td>"
+                            tabela1+="<td onclick=\"togglecolor(this)\" class=\"crvena\"></td>"
                         }
                     }
                     brojVjez=izbaci[0].vjezbe;
                     for(var m =0; m<podaci.brojVjezbiSedmicno; m++){
                         if(m<=brojVjez-1){
-                            tabela1+="<td class=\"zelena\"></td>"
+                            tabela1+="<td onclick=\"togglecolor(this)\"  class=\"zelena\"></td>"
                         }
                         else{
-                            tabela1+="<td class=\"crvena\"></td>"
+                            tabela1+="<td onclick=\"togglecolor(this)\"  class=\"crvena\"></td>"
                         }
                     }
             }
@@ -276,6 +274,20 @@ let TabelaPrisustvo = function (divRef, podaci) {
         trenutni2-=1;
         napravitabelu(trenutni2);
     }
+   
+/*
+        const table = document.getElementById("tabela12");
+        console.log(table);
+        table.addEventListener("click", (event) => {
+            const target = event.target;
+            console.log("Nesto target" + target);
+            if (target.tagName === "TD" && target.classList.contains("zelena")) {
+                target.style.backgroundColor = "#ff0000"; 
+            }
+        });
+        */
+    
+    
     return {
         sljedecaSedmica: sljedecaSedmica,
         prethodnaSedmica: prethodnaSedmica
