@@ -4,7 +4,7 @@ function logout(){
 }
 
 function fnCallback(a){
-    window.location.href="/prijava";
+    window.location.href="/prijava.html";
 }
 
 function klikpredmeta(a){
@@ -20,7 +20,24 @@ function fnCallback4(a){
     k.sljedecaSedmica();
 }
 
-function togglecolor(element) {
-    if (element.className == "zelena") { element.className = "crvena"; }
-    else if(element.className == "crvena"){ element.className = "zelena"; }
+function togglecolor(element, naziv,  index, sedmica, predavanja, vjezbe) {
+    if (element.className == "zelena") {
+        let ajax = PoziviAjax;
+        ajax.postPrisustvo(naziv,index,{sedmica,predavanja,vjezbe},fnCallback5);
+    }
+    else if(element.className == "crvena"){
+        let ajax = PoziviAjax;
+        ajax.postPrisustvo(naziv,index,{sedmica,predavanja,vjezbe},fnCallback5); 
+    }
+    else if(element.className == "bijela"){
+        let ajax = PoziviAjax;
+        ajax.postPrisustvo(naziv,index,{sedmica,predavanja,vjezbe},fnCallback5); 
+    }
+}
+
+function fnCallback5(a){
+    var divRef = document.getElementById("ucrtaj");
+    var k = TabelaPrisustvo(divRef,a)
+    k.prethodnaSedmica();
+    k.sljedecaSedmica();
 }

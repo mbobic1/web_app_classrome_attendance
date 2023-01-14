@@ -205,31 +205,48 @@ let TabelaPrisustvo = function (divRef, podaci) {
             tabela1+="<td rowspan=\"2\"></td>";
             tabela1+="<tr>"
             var izbaci=podaci.prisustva.filter(x => x.index == podaci.studenti[i].index).filter(x=> x.sedmica==trenutni2+1);
+            
             if(izbaci.length==0){
+                var izbaciSed = trenutni2+1;
+                var izbaciPred = 0;
+                var izbaciVjez = 0;
                 for(var m = 0; m<podaci.brojPredavanjaSedmicno; m++){
-                        tabela1+="<td> </td>"
+                        tabela1+="<td onclick=\"togglecolor(this,'"+podaci.predmet+"','"+podaci.studenti[i].index+"','"+izbaciSed+"','"+(izbaciPred+1)+"','"+izbaciVjez+"')\" class=\"bijela\"> </td>"
                     
                 }
                 for(var m =0; m<podaci.brojVjezbiSedmicno; m++){
-                        tabela1+="<td> </td>"                    
+                        tabela1+="<td onclick=\"togglecolor(this,'"+podaci.predmet+"','"+podaci.studenti[i].index+"','"+izbaciSed+"','"+izbaciPred+"','"+(izbaciVjez+1)+"')\" class=\"bijela\"> </td>"                    
                 }
             }else{
+                console.log(izbaci[0].sedmica);
                 brojPred=izbaci[0].predavanja;
                     for(var m = 0; m<podaci.brojPredavanjaSedmicno; m++){
-                        if(m<=brojPred-1){
-                            tabela1+="<td onclick=\"togglecolor(this)\" class=\"zelena\"></td>"
+                        if(m<=brojPred-1){ //stao ovdje 
+                            var izbaciSed = parseInt(izbaci[0].sedmica);
+                            var izbaciPred = parseInt(izbaci[0].predavanja);
+                            var izbaciVjez = parseInt(izbaci[0].vjezbe);
+                            tabela1+="<td onclick=\"togglecolor(this,'"+podaci.predmet+"','"+podaci.studenti[i].index+"','"+izbaciSed+"','"+(izbaciPred-1)+"','"+izbaciVjez+"')\" class=\"zelena\"></td>"
                         }
                         else{
-                            tabela1+="<td onclick=\"togglecolor(this)\" class=\"crvena\"></td>"
+                            var izbaciSed = parseInt(izbaci[0].sedmica);
+                            var izbaciPred = parseInt(izbaci[0].predavanja);
+                            var izbaciVjez = parseInt(izbaci[0].vjezbe);
+                            tabela1+="<td onclick=\"togglecolor(this,'"+podaci.predmet+"','"+podaci.studenti[i].index+"','"+izbaciSed+"','"+parseInt(izbaciPred+1)+"','"+izbaciVjez+"')\" class=\"crvena\"></td>"
                         }
                     }
                     brojVjez=izbaci[0].vjezbe;
                     for(var m =0; m<podaci.brojVjezbiSedmicno; m++){
                         if(m<=brojVjez-1){
-                            tabela1+="<td onclick=\"togglecolor(this)\"  class=\"zelena\"></td>"
+                            var izbaciSed = parseInt(izbaci[0].sedmica);
+                            var izbaciPred = parseInt(izbaci[0].predavanja);
+                            var izbaciVjez = parseInt(izbaci[0].vjezbe);
+                            tabela1+="<td onclick=\"togglecolor(this,'"+podaci.predmet+"','"+podaci.studenti[i].index+"','"+izbaciSed+"','"+izbaciPred+"','"+(izbaciVjez-1)+"')\"  class=\"zelena\"></td>"
                         }
                         else{
-                            tabela1+="<td onclick=\"togglecolor(this)\"  class=\"crvena\"></td>"
+                            var izbaciSed = parseInt(izbaci[0].sedmica);
+                            var izbaciPred = parseInt(izbaci[0].predavanja);
+                            var izbaciVjez = parseInt(izbaci[0].vjezbe);
+                            tabela1+="<td onclick=\"togglecolor(this,'"+podaci.predmet+"','"+podaci.studenti[i].index+"','"+izbaciSed+"','"+izbaciPred+"','"+(izbaciVjez+1)+"')\"  class=\"crvena\"></td>"
                         }
                     }
             }

@@ -2,8 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
-const session = require("express-session");
+const session = require('express-session');
 var bcrypt = require('bcrypt');
+const { Console } = require('console');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -84,8 +85,8 @@ app.use(session({
 
 
  app.get('/predmet/:NAZIV', function(req, res){
-    var ima =0;
     fs.readFile(__dirname+"/public/data/prisustva.json", function(err, data){
+        var ima =0;
         if(err){
             console.error(err);
             res.writeHead(500, { 'Content-Type': 'text/plain' });
@@ -99,9 +100,52 @@ app.use(session({
                 break;
             }
         }
+        if(ima==0){
+            console.log("Nema predmeta sa unutar fajla");
+        }
     });
  });
 
+ app.post('/prisustvo/predmet/:NAZIV/student/:index', function(req,res){
+    fs.readFile(__dirname+"/public/data/prisustva.json", function(err, data){
+        if(err){
+            console.error(err);
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('Doslo je do greske prilikom citanja fajla');
+        }
+        const fileContent = JSON.parse(data); 
+        var bijeloPolje =0;
+        for(var i=0; i<fileContent.length; i++){
+            if(fileContent[i].predmet==req.params.NAZIV){
+                for(var j=0; j<fileContent[i].studenti.length; j++){
+                    if(fileContent[i].studenti[j].index==req.params.index){
+                        for(var k=0; k<fileContent[i].prisustva.length; k++){
+                            if(fileContent[i].prisustva[k].sedmica==req.body['sedmica'] && fileContent[i].prisustva[k].index==req.params.index){
+                                bijeloPolje=1;
+                                fileContent[i].prisustva[k].predavanja=req.body['predavanja'];
+                                fileContent[i].prisustva[k].vjezbe=req.body['vjezbe'];
+                                var m = fileContent[i];
+                                fs.writeFile(__dirname+"/public/data/prisustva.json", JSON.stringify(fileContent), err=>{
+                                    res.json(m);
+                                });
+                                break;
+                            }
+                        }
+                        if(bijeloPolje==0){
+                            var napraviPolje = {"sedmica":req.body['sedmica'],"predavanja":req.body['predavanja'],"vjezbe":req.body['vjezbe'],"index":req.params.index};
+                            fileContent[i].prisustva.push(napraviPolje);
+                            var el=fileContent[i];
+                            fs.writeFile(__dirname+"/public/data/prisustva.json", JSON.stringify(fileContent), err=>{
+                            res.json(el);
+                            });
+                           break;
+                        }
+                    }
+                }
+            }
+        }
+    });
+ });
 app.listen(3000);
 
 bcrypt.hash("12", 10, function(err, hash) {
