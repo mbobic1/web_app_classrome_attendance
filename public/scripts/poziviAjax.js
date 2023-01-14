@@ -47,6 +47,7 @@ const PoziviAjax = (()=>{
             }else if (ajax.readyState == 4 && ajax.status == 400) {
                 var jsonRez = JSON.parse(ajax.responseText);
                 fnCallback(jsonRez, null);
+                
             }
         }
         ajax.open("POST", "http://localhost:3000/login", true);
