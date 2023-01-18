@@ -4,7 +4,6 @@ const fs = require('fs');
 const app = express();
 const session = require('express-session');
 var bcrypt = require('bcrypt');
-const { Console } = require('console');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,6 +20,7 @@ app.use(session({
  }));
 
  app.post('/login', function(req, res){
+    
     fs.readFile(__dirname+"/public/data/nastavnici.json", 'utf-8', function(err, data){
         if(err){
             console.error(err);
