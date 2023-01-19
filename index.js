@@ -199,7 +199,6 @@ app.use(session({
                                 fs.writeFile(__dirname+"/public/data/prisustva.json", JSON.stringify(fileContent), err=>{
                                     res.json(m);
                                 });
-                                break;
                             }
                         }
                         if(bijeloPolje==0){
