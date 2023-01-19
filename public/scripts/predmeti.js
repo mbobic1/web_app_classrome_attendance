@@ -36,6 +36,7 @@ function togglecolor(element, naziv,  index, sedmica, predavanja, vjezbe) {
 }
 
 function fnCallback5(a){
+    console.log(a);
     var divRef = document.getElementById("ucrtaj");
     var k = TabelaPrisustvo(divRef,a)
     k.prethodnaSedmica();

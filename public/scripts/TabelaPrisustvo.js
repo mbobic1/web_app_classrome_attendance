@@ -162,7 +162,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
         for(var i=0; i<podaci.studenti.length; i++){
             var izasaoPrIVj=0;
             tabela1+="<tr>"
-            tabela1+="<td rowspan=\"2\">"+podaci.studenti[i].ime + "</td>";
+            tabela1+="<td rowspan=\"2\">"+podaci.studenti[i].name + "</td>";
             tabela1+="<td rowspan=\"2\">"+podaci.studenti[i].index + "</td>";
             for(var j = 1; j<=ukupnosedmica; j++){
                 izasaoPrIVj=0;

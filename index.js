@@ -130,7 +130,8 @@ app.use(session({
                     t.ime === value.ime && t.index === value.index
                 )))
                 console.log("Izbaci mi studenta", studenti12345);
-                var uzmi123456 = {predmet:predmeti[i].dataValues.naziv,studenti:studenti12345,prisustva:prisustva12345,brojPredavanjaSedmicno:predmeti[i].dataValues.brojPredavanjaSedmicno,brojVjezbiSedmicno:predmeti[i].dataValues.brojVjezbiSedmicno};
+                var uzmi123456 = {studenti:studenti12345,prisustva:prisustva12345,predmet:predmeti[i].dataValues.naziv,brojPredavanjaSedmicno:predmeti[i].dataValues.brojPredavanjaSedmicno,brojVjezbiSedmicno:predmeti[i].dataValues.brojVjezbiSedmicno};
+                console.log("Uzmi iznosi:", uzmi123456);
                 res.send(JSON.stringify(uzmi123456));
             }
         }
@@ -139,7 +140,45 @@ app.use(session({
  });
 
  app.post('/prisustvo/predmet/:NAZIV/student/:index', function(req,res){
-    fs.readFile(__dirname+"/public/data/prisustva.json", function(err, data){
+    db.predmeti.findAll({include:{model:db.prisustva,include:db.studenti}}).then(function(predmeti){
+        for(var i=0; i<predmeti.length; i++){
+            var prisustva12345 = [];
+            var studenti12345 = [];
+            if(predmeti[i].dataValues.naziv==req.params.NAZIV){
+                for(var j=0; j<predmeti[i].dataValues.prisustvas.length;j++){
+                    prisustva12345.push(predmeti[i].dataValues.prisustvas[j].dataValues);
+                    studenti12345.push(predmeti[i].dataValues.prisustvas[j].dataValues.studenti.dataValues);
+                }
+                studenti12345=[...new Set(studenti12345)]        
+                studenti12345 = studenti12345.filter((value, index, self) =>
+                    index === self.findIndex((t) => (
+                    t.ime === value.ime && t.index === value.index
+                )))
+                //console.log("Izbaci mi prisustva", prisustva12345);
+                for(var k12 =0; k12<studenti12345.length; k12++){
+                    if(studenti12345[k12].index==req.params.index){
+                        for(var m13=0; m13<prisustva12345.length; m13++){
+                            if(prisustva12345[m13].sedmica==req.body['sedmica'] && prisustva12345[m13].index==req.params.index){
+                                prisustva12345[m13].predavanja=parseInt(req.body['predavanja']);
+                                prisustva12345[m13].vjezbe=parseInt(req.body['vjezbe']);
+                                var uzmi123456 = {predmet:predmeti[i].dataValues.naziv,studenti:studenti12345,prisustva:prisustva12345,brojPredavanjaSedmicno:predmeti[i].dataValues.brojPredavanjaSedmicno,brojVjezbiSedmicno:predmeti[i].dataValues.brojVjezbiSedmicno};
+                                db.prisustva.update({predavanja:req.body['predavanja'],vjezbe:req.body['vjezbe']},{
+                                    where: {sedmica:req.body['sedmica'], index:req.params.index, predmetId:prisustva12345[m13].predmetId}
+                                  }).then(function (results) {
+                
+                                      console.log(results + " record(s) updated");
+                                  });
+                                  res.send(JSON.stringify(uzmi123456));
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    });
+   /* fs.readFile(__dirname+"/public/data/prisustva.json", function(err, data){
         if(err){
             console.error(err);
             res.writeHead(500, { 'Content-Type': 'text/plain' });
@@ -176,7 +215,7 @@ app.use(session({
                 }
             }
         }
-    });
+    });*/
  });
 app.listen(3000);
 
