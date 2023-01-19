@@ -5,6 +5,9 @@ const app = express();
 const session = require('express-session');
 var bcrypt = require('bcrypt');
 
+const db = require('./baza/db.js');
+db.sequelize.sync().then(function(){})
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -20,26 +23,52 @@ app.use(session({
  }));
 
  app.post('/login', function(req, res){
-    
-    fs.readFile(__dirname+"/public/data/nastavnici.json", 'utf-8', function(err, data){
-        if(err){
-            console.error(err);
-            res.writeHead(500, { 'Content-Type': 'text/plain' });
-            res.end('Doslo je do greske prilikom citanja fajla');
+    db.nastavnik.findAll({include:db.predmeti}).then(function(nastavnik){
+        let uzmi = [];
+        for(var i=0; i<nastavnik.length; i++){
+            var predm123 = [];
+            for(var j=0; j<nastavnik[i].dataValues.predmets.length; j++){
+                predm123.push(nastavnik[i].dataValues.predmets[j].dataValues.naziv);
+            }
+            nastavnik[i].dataValues.predmets=predm123;
+            uzmi.push(nastavnik[i]);
         }
         var loginUspjesan = false;
-        const fileContent = JSON.parse(data); 
+        const fileContent = uzmi;
         for(var i=0; i<fileContent.length; i++){
-            if(fileContent[i].nastavnik.username == req.body['username']){
-                bcrypt.compare(req.body['password'], fileContent[i].nastavnik.password_hash, function(err, res1) {
+            if(fileContent[i].dataValues.username == req.body['username']){
+                bcrypt.compare(req.body['password'], fileContent[i].dataValues.password_hash, function(err, res1) {
                     if (err){
                         console.error(err);
                         res.send(JSON.stringify('Doslo je do greske sa ovim passwordom'));
                     }
                     if (res1) {
                         loginUspjesan = true;
-                        req.session.username = fileContent[i].nastavnik.username;
-                        req.session.predmeti = fileContent[i].predmeti;
+                        req.session.username = fileContent[i].dataValues.username;
+                        req.session.predmeti = fileContent[i].dataValues.predmets;
+                        
+                        
+                        /*db.nastavnik_predmeta.findAll({
+                            where: {nastavnikId: fileContent[i].dataValues.id}
+                        }).then(function(uzmiIzmedju){
+                            for(var uz =0; uz<uzmiIzmedju.length; uz++){
+                               db.predmeti.findAll({
+                                    where: {id:uzmiIzmedju[uz].dataValues.predmetId}
+                                }).then(function(predmeti123){
+                                    var nasPredmet=[];
+                                    for(var pr=0; pr<predmeti123.length; pr++){
+                                        console.log(predmeti123[pr].dataValues.naziv);
+                                        
+                                        //req.session.predmeti = req.session.predmeti + [predmeti123[pr].dataValues.naziv]
+                                        
+                                    }                                    
+                                });
+                            }
+                            //console.log("Budi",budi);
+                            
+                        }); */  
+                        //console.log("Predmet su ", uzmipredmeti);                
+                        //req.session.predmeti = fileContent[i].predmeti;
                         const response = {
                             poruka: loginUspjesan ? "Uspješna prijava" : "Neuspješna prijava"
                         };
@@ -53,10 +82,11 @@ app.use(session({
                             res.send(JSON.stringify(response));              
                         }
                     }
-                  });
+                });
                 break;
             }
-        }        
+        }
+        
     });
 
  });
@@ -85,24 +115,26 @@ app.use(session({
 
 
  app.get('/predmet/:NAZIV', function(req, res){
-    fs.readFile(__dirname+"/public/data/prisustva.json", function(err, data){
-        var ima =0;
-        if(err){
-            console.error(err);
-            res.writeHead(500, { 'Content-Type': 'text/plain' });
-            res.end('Doslo je do greske prilikom citanja fajla');
-        }
-        const fileContent = JSON.parse(data); 
-        for(var i=0; i<fileContent.length; i++){
-            if(fileContent[i].predmet==req.params.NAZIV){
-                ima = 1;
-                res.send(JSON.stringify(fileContent[i]));
-                break;
+    db.predmeti.findAll({include:{model:db.prisustva,include:db.studenti}}).then(function(predmeti){
+        for(var i=0; i<predmeti.length; i++){
+            var prisustva12345 = [];
+            var studenti12345 = [];
+            if(predmeti[i].dataValues.naziv==req.params.NAZIV){
+                for(var j=0; j<predmeti[i].dataValues.prisustvas.length;j++){
+                    prisustva12345.push(predmeti[i].dataValues.prisustvas[j].dataValues);
+                    studenti12345.push(predmeti[i].dataValues.prisustvas[j].dataValues.studenti.dataValues);
+                }
+                studenti12345=[...new Set(studenti12345)]        
+                studenti12345 = studenti12345.filter((value, index, self) =>
+                    index === self.findIndex((t) => (
+                    t.ime === value.ime && t.index === value.index
+                )))
+                console.log("Izbaci mi studenta", studenti12345);
+                var uzmi123456 = {predmet:predmeti[i].dataValues.naziv,studenti:studenti12345,prisustva:prisustva12345,brojPredavanjaSedmicno:predmeti[i].dataValues.brojPredavanjaSedmicno,brojVjezbiSedmicno:predmeti[i].dataValues.brojVjezbiSedmicno};
+                res.send(JSON.stringify(uzmi123456));
             }
         }
-        if(ima==0){
-            console.log("Nema predmeta sa unutar fajla");
-        }
+        
     });
  });
 

@@ -5,7 +5,7 @@ db.sequelize.sync({force:true}).then(function(){
 
 
 function inicializacija(){
-    function asinhronoDajRandom(redBr = 1, predmet) {
+    function asinhronoDajRandom(predmet) {
         return new Promise(function (resolve, reject) {
             db.predmeti.create({naziv:predmet.predmet,brojPredavanjaSedmicno:predmet.brojPredavanjaSedmicno,brojVjezbiSedmicno:predmet.brojVjezbiSedmicno}).then(function(k){
                 for(var i=0; i<predmet.studenti.length; i++){
@@ -17,7 +17,7 @@ function inicializacija(){
                             db.prisustva.create({sedmica:n[j].sedmica,predavanja:n[j].predavanja,vjezbe:n[j].vjezbe,index:n[j].index}).then(function(y){
                                 m.setPrisustvas([y]);
                                 k.setPrisustvas([y]);
-                
+                                //m.setStudent(y);                
                             })
                         } 
                     })
@@ -25,7 +25,7 @@ function inicializacija(){
             })
         });
      }
-     function asinhronoDodajNastavnika(redBr = 1, nastavnik3) {
+     function asinhronoDodajNastavnika( nastavnik3) {
         return new Promise(function (resolve, reject) {
             db.nastavnik.create({username:nastavnik3.nastavnik.username,password_hash:nastavnik3.nastavnik.password_hash}).then(function(k){
                 for(var i=0; i<nastavnik3.predmeti.length; i++){
@@ -46,14 +46,14 @@ function inicializacija(){
     let prisustva = require('./public/data/prisustva.json');
     let nizPromisea = [];
     for (var i = 0; i < prisustva.length; i++) {
-        nizPromisea.push(asinhronoDajRandom(i + 1,prisustva[i]));
+        nizPromisea.push(asinhronoDajRandom(prisustva[i]));
     }
     Promise.all(nizPromisea);
 
     let nastavnici1 = require('./public/data/nastavnici.json');
     let nizPromisea1 = [];
     for(var i=0; i<nastavnici1.length; i++){
-        nizPromisea1.push(asinhronoDodajNastavnika(i+1,nastavnici1[i]));
+        nizPromisea1.push(asinhronoDodajNastavnika(nastavnici1[i]));
     }
     Promise.all(nizPromisea1);
 }

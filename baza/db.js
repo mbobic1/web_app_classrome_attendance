@@ -14,6 +14,7 @@ db.nastavnik_predmeta = require(__dirname+'/nastavnik_predmeta.js')(sequelize);
 //relacije
 // Veza 1-n vise prisustva na studenta
 // Veza 1-n vise prisustva moze imati jedno predavanje
+db.prisustva.belongsTo(db.studenti);
 db.studenti.hasMany(db.prisustva);
 db.predmeti.hasMany(db.prisustva);
 
