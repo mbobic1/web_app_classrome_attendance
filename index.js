@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
 const session = require('express-session');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 
 const db = require('./baza/db.js');
 db.sequelize.sync().then(function(){})
@@ -218,7 +218,4 @@ app.use(session({
  });
 app.listen(3000);
 
-bcrypt.hash("12", 10, function(err, hash) {
-    console.log(hash);
-});
     
