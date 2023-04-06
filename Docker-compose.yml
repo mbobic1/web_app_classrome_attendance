@@ -1,27 +1,28 @@
 services:
- mysql:
- image: mysql-db
- hostname: mysql-db
- networks:
-  -arm-mreza
- environment:
-  - MYSQL_ROOT_PASSWORD=passsword
-  - MYSQL_DATABASE=wt22
- ports:
-  -"3306:3306"
-wtspirala:
- image: nodejs-app:v1.0
- depends_on:
-  - mysql
- deploy:
-  restart_policy:
-   condition: on-failure
-   max_attempts: 10
+ mysql-db:
+  image: mysql:latest
+  hostname: mysql-db
+  networks:
+   - arm-mreza
+  environment:
+   - MYSQL_ROOT_PASSWORD=passsword
+   - MYSQL_DATABASE=wt22
+ nodejs-app:
+  build: ./my-nodejs-app
+  image: nodejs-app:v1.0
+  container_name: nodejs-app1
+  ports:
+   - "3000:3000"
+  networks:
+   - arm-mreza
+  depends_on:
+   - mysql-db
+  deploy:
+   restart_policy:
+    condition: on-failure
+    max_attempts: 10
  
- networks:
-  -arm-mreza
- ports:
-  -"3000:3000"
 networks:
  arm-mreza:
-  name:arm-mreza
+  name: arm-mreza
+  driver: bridge
