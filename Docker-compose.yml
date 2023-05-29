@@ -8,8 +8,7 @@ services:
    - MYSQL_ROOT_PASSWORD=passsword
    - MYSQL_DATABASE=wt22
  nodejs-app:
-  build: ./my-nodejs-app
-  image: nodejs-app:v1.0
+  image: mbobic1/arm-zadaca
   container_name: nodejs-app1
   ports:
    - "3000:3000"
@@ -20,7 +19,7 @@ services:
   deploy:
    restart_policy:
     condition: on-failure
-    max_attempts: 10
+    max_attempts: 20
  
 networks:
  arm-mreza:
