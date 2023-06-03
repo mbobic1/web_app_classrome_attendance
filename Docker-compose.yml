@@ -1,0 +1,27 @@
+services:
+ mysql-db:
+  image: mysql:latest
+  hostname: mysql-db
+  networks:
+   - arm-mreza
+  environment:
+   - MYSQL_ROOT_PASSWORD=passsword
+   - MYSQL_DATABASE=wt22
+ nodejs-app:
+  image: mbobic1/arm-zadaca
+  container_name: nodejs-app1
+  ports:
+   - "3000:3000"
+  networks:
+   - arm-mreza
+  depends_on:
+   - mysql-db
+  deploy:
+   restart_policy:
+    condition: on-failure
+    max_attempts: 20
+ 
+networks:
+ arm-mreza:
+  name: arm-mreza
+  driver: bridge

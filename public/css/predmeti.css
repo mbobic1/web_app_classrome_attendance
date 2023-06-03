@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+}
+#menu{
+    margin: 0;
+    background-color: antiquewhite;
+}
+ul {
+    list-style-type: none;
+    margin-bottom: 20px; /* dodajte margin ispod liste */
+    float: left;
+}
+ul li{
+    padding: 10px;
+    float: left;
+}
+  
+button {
+    display: block;
+    margin: 0 auto;
+    clear: both;
+}
